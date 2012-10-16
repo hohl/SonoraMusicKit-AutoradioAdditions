@@ -15,9 +15,9 @@
 		030429AA15ED4722002C4CA2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 030429A715ED4722002C4CA2 /* main.m */; };
 		030429AE15ED4728002C4CA2 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 030429AC15ED4728002C4CA2 /* InfoPlist.strings */; };
 		0306DB6915EC198500D6409B /* SMKMPMediaAlbum.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306DB6615EC170000D6409B /* SMKMPMediaAlbum.m */; };
-		0306DB6A15EC198B00D6409B /* SMKMPMediaPlaylist.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 032BAE8F15EC053B003E3135 /* SMKMPMediaPlaylist.h */; };
-		0306DB6B15EC199800D6409B /* SMKMPMediaTrack.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 032BAEA815EC0E5E003E3135 /* SMKMPMediaTrack.h */; };
-		0306DB6D15EC199D00D6409B /* SMKMPMediaPredicate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 032BAE8C15EBFEC8003E3135 /* SMKMPMediaPredicate.h */; };
+		0306DB6A15EC198B00D6409B /* SMKMPMediaPlaylist.h in Headers */ = {isa = PBXBuildFile; fileRef = 032BAE8F15EC053B003E3135 /* SMKMPMediaPlaylist.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0306DB6B15EC199800D6409B /* SMKMPMediaTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 032BAEA815EC0E5E003E3135 /* SMKMPMediaTrack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0306DB6D15EC199D00D6409B /* SMKMPMediaPredicate.h in Headers */ = {isa = PBXBuildFile; fileRef = 032BAE8C15EBFEC8003E3135 /* SMKMPMediaPredicate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0306DB7015EC243100D6409B /* SMKMPMediaArtist.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306DB6F15EC243100D6409B /* SMKMPMediaArtist.m */; };
 		0306DB7715EC3A4B00D6409B /* SMKMPMediaHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 0306DB7615EC3A4B00D6409B /* SMKMPMediaHelpers.m */; };
 		030CE89715E579EC00AC12BE /* NSManagedObjectContext+SMKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 030CE89515E579EC00AC12BE /* NSManagedObjectContext+SMKAdditions.h */; };
@@ -43,14 +43,14 @@
 		03157B5415EBE3CB0048DB65 /* libSNRMusicKitiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0369923915E3EB44003BCCBE /* libSNRMusicKitiOS.a */; };
 		03157B5515EBE3E00048DB65 /* SPLoginResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 03157B1315EBE35C0048DB65 /* SPLoginResources.bundle */; };
 		03157B5715EBE42A0048DB65 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03157B5615EBE42A0048DB65 /* UIKit.framework */; };
-		032BAE7915EBF361003E3135 /* SPUser+SMKUser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03EB017415E859FB001F3A02 /* SPUser+SMKUser.h */; };
-		032BAE7A15EBF361003E3135 /* SPPlaylist+SMKPlaylist.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03EB017E15E85C3E001F3A02 /* SPPlaylist+SMKPlaylist.h */; };
-		032BAE7B15EBF361003E3135 /* SPTrack+SMKTrack.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03EB019415E87A4A001F3A02 /* SPTrack+SMKTrack.h */; };
-		032BAE7C15EBF361003E3135 /* SPAlbum+SMKAlbum.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03EB019915E88745001F3A02 /* SPAlbum+SMKAlbum.h */; };
-		032BAE7D15EBF361003E3135 /* SPArtist+SMKArtist.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03EB019E15E88F17001F3A02 /* SPArtist+SMKArtist.h */; };
-		032BAE7E15EBF361003E3135 /* SPToplist+SMKPlaylist.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03DEF86B15EA9F7F001A1537 /* SPToplist+SMKPlaylist.h */; };
-		032BAE7F15EBF366003E3135 /* SMKSpotifyConstants.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03EB018F15E87676001F3A02 /* SMKSpotifyConstants.h */; };
-		032BAE8015EBF36C003E3135 /* SMKSpotifyContentSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03EB016E15E856FB001F3A02 /* SMKSpotifyContentSource.h */; };
+		032BAE7915EBF361003E3135 /* SPUser+SMKUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB017415E859FB001F3A02 /* SPUser+SMKUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		032BAE7A15EBF361003E3135 /* SPPlaylist+SMKPlaylist.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB017E15E85C3E001F3A02 /* SPPlaylist+SMKPlaylist.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		032BAE7B15EBF361003E3135 /* SPTrack+SMKTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB019415E87A4A001F3A02 /* SPTrack+SMKTrack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		032BAE7C15EBF361003E3135 /* SPAlbum+SMKAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB019915E88745001F3A02 /* SPAlbum+SMKAlbum.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		032BAE7D15EBF361003E3135 /* SPArtist+SMKArtist.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB019E15E88F17001F3A02 /* SPArtist+SMKArtist.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		032BAE7E15EBF361003E3135 /* SPToplist+SMKPlaylist.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DEF86B15EA9F7F001A1537 /* SPToplist+SMKPlaylist.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		032BAE7F15EBF366003E3135 /* SMKSpotifyConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB018F15E87676001F3A02 /* SMKSpotifyConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		032BAE8015EBF36C003E3135 /* SMKSpotifyContentSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB016E15E856FB001F3A02 /* SMKSpotifyContentSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		032BAE8115EBF8EC003E3135 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EB016715E83F60001F3A02 /* MediaPlayer.framework */; };
 		032BAE8E15EBFEC8003E3135 /* SMKMPMediaPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 032BAE8D15EBFEC8003E3135 /* SMKMPMediaPredicate.m */; };
 		032BAE9115EC053B003E3135 /* SMKMPMediaPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 032BAE9015EC053B003E3135 /* SMKMPMediaPlaylist.m */; };
@@ -81,15 +81,15 @@
 		0369921E15E3EB0B003BCCBE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0369921C15E3EB0B003BCCBE /* InfoPlist.strings */; };
 		0369922215E3EB0B003BCCBE /* SNRMusicKitMac.m in Sources */ = {isa = PBXBuildFile; fileRef = 0369922115E3EB0B003BCCBE /* SNRMusicKitMac.m */; };
 		0369923B15E3EB44003BCCBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0369923A15E3EB44003BCCBE /* Foundation.framework */; };
-		0369924015E3EB44003BCCBE /* SNRMusicKitiOS.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0369923F15E3EB44003BCCBE /* SNRMusicKitiOS.h */; };
+		0369924015E3EB44003BCCBE /* SNRMusicKitiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369923F15E3EB44003BCCBE /* SNRMusicKitiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0369924715E3F341003BCCBE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0369924615E3F341003BCCBE /* AVFoundation.framework */; };
 		0369924D15E3F382003BCCBE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0369924C15E3F382003BCCBE /* AVFoundation.framework */; };
 		0369948D15E3F3C5003BCCBE /* SFBAudioEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0369948115E3F3AA003BCCBE /* SFBAudioEngine.framework */; };
 		0369948F15E3F3D1003BCCBE /* SFBAudioEngine.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0369948115E3F3AA003BCCBE /* SFBAudioEngine.framework */; };
 		036994D015E3F461003BCCBE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036991F615E3EAE1003BCCBE /* CoreData.framework */; };
 		036994D215E3F475003BCCBE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036994D115E3F475003BCCBE /* CoreData.framework */; };
-		036F857515EEC45100DF72B9 /* SMKQueueController.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0371CF9915EDECF200B304CC /* SMKQueueController.h */; };
-		036F857615EEC54500DF72B9 /* SMKAVQueuePlayer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03FBEC9D15E6E0C100A67DEE /* SMKAVQueuePlayer.h */; };
+		036F857515EEC45100DF72B9 /* SMKQueueController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0371CF9915EDECF200B304CC /* SMKQueueController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		036F857615EEC54500DF72B9 /* SMKAVQueuePlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 03FBEC9D15E6E0C100A67DEE /* SMKAVQueuePlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0370109C15E5535500FEAF6F /* SMKiTunesSyncOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0370109A15E5535500FEAF6F /* SMKiTunesSyncOperation.h */; };
 		0370109D15E5535500FEAF6F /* SMKiTunesSyncOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0370109B15E5535500FEAF6F /* SMKiTunesSyncOperation.m */; };
 		037010A015E5630000FEAF6F /* SMKiTunesConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 0370109E15E5630000FEAF6F /* SMKiTunesConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -121,9 +121,9 @@
 		037010E315E5751800FEAF6F /* SMKiTunesTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 037010D715E5751800FEAF6F /* SMKiTunesTrack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		037010E415E5751800FEAF6F /* SMKiTunesTrack.m in Sources */ = {isa = PBXBuildFile; fileRef = 037010D815E5751800FEAF6F /* SMKiTunesTrack.m */; };
 		0371CF9215EDDF8800B304CC /* SMKMPMusicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0371CF9115EDDF8800B304CC /* SMKMPMusicPlayer.m */; };
-		0371CF9315EDE44C00B304CC /* SMKMPMusicPlayer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0371CF9015EDDF8800B304CC /* SMKMPMusicPlayer.h */; };
-		0371CF9415EDE46F00B304CC /* SMKMPMediaArtist.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0306DB6E15EC243100D6409B /* SMKMPMediaArtist.h */; };
-		0371CF9515EDE47700B304CC /* SMKMPMediaAlbum.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0306DB6515EC170000D6409B /* SMKMPMediaAlbum.h */; };
+		0371CF9315EDE44C00B304CC /* SMKMPMusicPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 0371CF9015EDDF8800B304CC /* SMKMPMusicPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0371CF9415EDE46F00B304CC /* SMKMPMediaArtist.h in Headers */ = {isa = PBXBuildFile; fileRef = 0306DB6E15EC243100D6409B /* SMKMPMediaArtist.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0371CF9515EDE47700B304CC /* SMKMPMediaAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = 0306DB6515EC170000D6409B /* SMKMPMediaAlbum.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0371CF9715EDE4E500B304CC /* NSError+SMKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F795C515E47AD300C9F652 /* NSError+SMKAdditions.m */; };
 		0371CF9B15EDECF200B304CC /* SMKQueueController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0371CF9915EDECF200B304CC /* SMKQueueController.h */; };
 		0371CF9C15EDECF200B304CC /* SMKQueueController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0371CF9A15EDECF200B304CC /* SMKQueueController.m */; };
@@ -161,8 +161,8 @@
 		03E22DDB15E4AB92008351DD /* SMKiTunesContentSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E22DD915E4AB92008351DD /* SMKiTunesContentSource.m */; };
 		03EB016215E83D54001F3A02 /* SMKMPMediaContentSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EB016115E83D54001F3A02 /* SMKMPMediaContentSource.m */; };
 		03EB016815E83F60001F3A02 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EB016715E83F60001F3A02 /* MediaPlayer.framework */; };
-		03EB016915E840D5001F3A02 /* SMKErrorCodes.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03F795C115E47A3C00C9F652 /* SMKErrorCodes.h */; };
-		03EB016A15E840DB001F3A02 /* SMKMPMediaContentSource.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03EB016015E83D54001F3A02 /* SMKMPMediaContentSource.h */; };
+		03EB016915E840D5001F3A02 /* SMKErrorCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F795C115E47A3C00C9F652 /* SMKErrorCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		03EB016A15E840DB001F3A02 /* SMKMPMediaContentSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB016015E83D54001F3A02 /* SMKMPMediaContentSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03EB017015E856FB001F3A02 /* SMKSpotifyContentSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB016E15E856FB001F3A02 /* SMKSpotifyContentSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03EB017115E856FB001F3A02 /* SMKSpotifyContentSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EB016F15E856FB001F3A02 /* SMKSpotifyContentSource.m */; };
 		03EB017215E856FB001F3A02 /* SMKSpotifyContentSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EB016F15E856FB001F3A02 /* SMKSpotifyContentSource.m */; };
@@ -277,6 +277,50 @@
 		5F6447D7162D9A020032FE23 /* SMKLastFMClient+ARAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F6447D5162D9A010032FE23 /* SMKLastFMClient+ARAdditions.h */; };
 		5F6447D8162D9A020032FE23 /* SMKLastFMClient+ARAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6447D6162D9A010032FE23 /* SMKLastFMClient+ARAdditions.m */; };
 		5F6447D9162D9A020032FE23 /* SMKLastFMClient+ARAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6447D6162D9A010032FE23 /* SMKLastFMClient+ARAdditions.m */; };
+		5F6447DA162D9D8A0032FE23 /* SMKLastFMClient+ARAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F6447D5162D9A010032FE23 /* SMKLastFMClient+ARAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447DC162D9E8F0032FE23 /* SMKLastFMClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F6447A6162D86ED0032FE23 /* SMKLastFMClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447DD162D9E8F0032FE23 /* SMKLastFMClient+SMKTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F6447A8162D86ED0032FE23 /* SMKLastFMClient+SMKTrack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447DE162D9ED50032FE23 /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DEF89515EB2B76001A1537 /* SSKeychain.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447DF162D9ED50032FE23 /* AFHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F644775162D84880032FE23 /* AFHTTPClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447E0162D9ED50032FE23 /* AFHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F644777162D84880032FE23 /* AFHTTPRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447E1162D9ED50032FE23 /* AFImageRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F644779162D84880032FE23 /* AFImageRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447E2162D9ED50032FE23 /* AFJSONRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F64477B162D84880032FE23 /* AFJSONRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447E3162D9ED50032FE23 /* AFNetworkActivityIndicatorManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F64477D162D84880032FE23 /* AFNetworkActivityIndicatorManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447E4162D9ED50032FE23 /* AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F64477F162D84880032FE23 /* AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447E5162D9ED50032FE23 /* AFPropertyListRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F644780162D84880032FE23 /* AFPropertyListRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447E6162D9ED50032FE23 /* AFURLConnectionOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F644782162D84880032FE23 /* AFURLConnectionOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447E7162D9ED50032FE23 /* AFXMLRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F644784162D84880032FE23 /* AFXMLRequestOperation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447E8162D9ED50032FE23 /* UIImageView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F644786162D84880032FE23 /* UIImageView+AFNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447E9162D9F210032FE23 /* NSError+SMKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F795C415E47AD300C9F652 /* NSError+SMKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447EA162D9F210032FE23 /* NSURL+SMKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 037010A215E5700100FEAF6F /* NSURL+SMKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447EB162D9F210032FE23 /* NSBundle+SMKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 037010AF15E572E000FEAF6F /* NSBundle+SMKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447EC162D9F210032FE23 /* NSManagedObjectContext+SMKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 030CE89515E579EC00AC12BE /* NSManagedObjectContext+SMKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447ED162D9F210032FE23 /* NSObject+AssociatedObjects.h in Headers */ = {isa = PBXBuildFile; fileRef = 030CE8A215E57D5200AC12BE /* NSObject+AssociatedObjects.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447EE162D9F210032FE23 /* NSString+SMKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 030CE8D015E5C31F00AC12BE /* NSString+SMKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447EF162D9F210032FE23 /* NSMutableArray+SMKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 0335CC3015E8AA6400E4F9DF /* NSMutableArray+SMKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447F0162D9F210032FE23 /* SMKConvenience.h in Headers */ = {isa = PBXBuildFile; fileRef = 030CE8D515E5CE0000AC12BE /* SMKConvenience.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447F1162D9F210032FE23 /* SMKPlatformImports.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB018D15E86728001F3A02 /* SMKPlatformImports.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447F2162D9F210032FE23 /* SMKGlobalConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 03576BB115E961A000316930 /* SMKGlobalConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447F3162D9F210032FE23 /* NSObject+SMKSpotifyAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB018815E86317001F3A02 /* NSObject+SMKSpotifyAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447F4162D9F210032FE23 /* SMKSpotifyHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 03576BEE15E993E000316930 /* SMKSpotifyHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447F5162D9F210032FE23 /* SMKMPMediaHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = 0306DB7515EC3A4B00D6409B /* SMKMPMediaHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447F6162D9F210032FE23 /* SMKManagedObjectContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 03FBECA815E6E49400A67DEE /* SMKManagedObjectContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447F7162D9F210032FE23 /* SMKArtworkCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BDF4A515E9E840006CA8B1 /* SMKArtworkCache.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447F8162D9F210032FE23 /* SMKPlatformNativeImage+SMKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DEF87115EAE525001A1537 /* SMKPlatformNativeImage+SMKAdditions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447F9162D9F210032FE23 /* SMKSFBAudioPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F795B215E4740900C9F652 /* SMKSFBAudioPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447FA162D9F210032FE23 /* SMKAVPlayerItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 03FBECA215E6E2EB00A67DEE /* SMKAVPlayerItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447FB162D9F210032FE23 /* SMKSpotifyPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 03576BAC15E95C1B00316930 /* SMKSpotifyPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447FC162D9F210032FE23 /* SMKHierarchicalLoading.h in Headers */ = {isa = PBXBuildFile; fileRef = 03BDF49615E9D914006CA8B1 /* SMKHierarchicalLoading.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447FD162D9F210032FE23 /* SMKAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F7955215E426ED00C9F652 /* SMKAlbum.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447FE162D9F210032FE23 /* SMKArtist.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F7955715E42BE800C9F652 /* SMKArtist.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F6447FF162D9F210032FE23 /* SMKContentSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F7955515E4282800C9F652 /* SMKContentSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F644800162D9F210032FE23 /* SMKPlaylist.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F7957F15E4451000C9F652 /* SMKPlaylist.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F644801162D9F210032FE23 /* SMKTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F7955915E434FC00C9F652 /* SMKTrack.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F644802162D9F210032FE23 /* SMKPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F7957D15E43ACD00C9F652 /* SMKPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F644803162D9F210032FE23 /* SMKUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F7958115E447AE00C9F652 /* SMKUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F644804162D9F210032FE23 /* SMKContentObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E22DA915E4A87B008351DD /* SMKContentObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F644805162D9F210032FE23 /* SMKArtworkObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E22DAB15E4A9C1008351DD /* SMKArtworkObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F644806162D9F210032FE23 /* SMKWebObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E22DAD15E4AA7D008351DD /* SMKWebObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -395,34 +439,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				03576BE715E969CB00316930 /* SNRMusicKitMac.framework in CopyFiles */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		0369923715E3EB44003BCCBE /* CopyFiles */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "include/${PRODUCT_NAME}";
-			dstSubfolderSpec = 16;
-			files = (
-				032BAE8015EBF36C003E3135 /* SMKSpotifyContentSource.h in CopyFiles */,
-				032BAE7F15EBF366003E3135 /* SMKSpotifyConstants.h in CopyFiles */,
-				032BAE7915EBF361003E3135 /* SPUser+SMKUser.h in CopyFiles */,
-				032BAE7A15EBF361003E3135 /* SPPlaylist+SMKPlaylist.h in CopyFiles */,
-				0371CF9415EDE46F00B304CC /* SMKMPMediaArtist.h in CopyFiles */,
-				032BAE7B15EBF361003E3135 /* SPTrack+SMKTrack.h in CopyFiles */,
-				032BAE7C15EBF361003E3135 /* SPAlbum+SMKAlbum.h in CopyFiles */,
-				032BAE7D15EBF361003E3135 /* SPArtist+SMKArtist.h in CopyFiles */,
-				032BAE7E15EBF361003E3135 /* SPToplist+SMKPlaylist.h in CopyFiles */,
-				0369924015E3EB44003BCCBE /* SNRMusicKitiOS.h in CopyFiles */,
-				03EB016915E840D5001F3A02 /* SMKErrorCodes.h in CopyFiles */,
-				0306DB6D15EC199D00D6409B /* SMKMPMediaPredicate.h in CopyFiles */,
-				03EB016A15E840DB001F3A02 /* SMKMPMediaContentSource.h in CopyFiles */,
-				0306DB6A15EC198B00D6409B /* SMKMPMediaPlaylist.h in CopyFiles */,
-				0306DB6B15EC199800D6409B /* SMKMPMediaTrack.h in CopyFiles */,
-				0371CF9515EDE47700B304CC /* SMKMPMediaAlbum.h in CopyFiles */,
-				0371CF9315EDE44C00B304CC /* SMKMPMusicPlayer.h in CopyFiles */,
-				036F857515EEC45100DF72B9 /* SMKQueueController.h in CopyFiles */,
-				036F857615EEC54500DF72B9 /* SMKAVQueuePlayer.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1441,6 +1457,76 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5F6447DB162D9DA60032FE23 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F6447DC162D9E8F0032FE23 /* SMKLastFMClient.h in Headers */,
+				5F6447DD162D9E8F0032FE23 /* SMKLastFMClient+SMKTrack.h in Headers */,
+				5F6447DA162D9D8A0032FE23 /* SMKLastFMClient+ARAdditions.h in Headers */,
+				032BAE8015EBF36C003E3135 /* SMKSpotifyContentSource.h in Headers */,
+				032BAE7F15EBF366003E3135 /* SMKSpotifyConstants.h in Headers */,
+				032BAE7915EBF361003E3135 /* SPUser+SMKUser.h in Headers */,
+				032BAE7A15EBF361003E3135 /* SPPlaylist+SMKPlaylist.h in Headers */,
+				0371CF9415EDE46F00B304CC /* SMKMPMediaArtist.h in Headers */,
+				032BAE7B15EBF361003E3135 /* SPTrack+SMKTrack.h in Headers */,
+				032BAE7C15EBF361003E3135 /* SPAlbum+SMKAlbum.h in Headers */,
+				032BAE7D15EBF361003E3135 /* SPArtist+SMKArtist.h in Headers */,
+				032BAE7E15EBF361003E3135 /* SPToplist+SMKPlaylist.h in Headers */,
+				0369924015E3EB44003BCCBE /* SNRMusicKitiOS.h in Headers */,
+				03EB016915E840D5001F3A02 /* SMKErrorCodes.h in Headers */,
+				0306DB6D15EC199D00D6409B /* SMKMPMediaPredicate.h in Headers */,
+				03EB016A15E840DB001F3A02 /* SMKMPMediaContentSource.h in Headers */,
+				0306DB6A15EC198B00D6409B /* SMKMPMediaPlaylist.h in Headers */,
+				0306DB6B15EC199800D6409B /* SMKMPMediaTrack.h in Headers */,
+				0371CF9515EDE47700B304CC /* SMKMPMediaAlbum.h in Headers */,
+				0371CF9315EDE44C00B304CC /* SMKMPMusicPlayer.h in Headers */,
+				5F6447E9162D9F210032FE23 /* NSError+SMKAdditions.h in Headers */,
+				5F6447EA162D9F210032FE23 /* NSURL+SMKAdditions.h in Headers */,
+				5F6447EB162D9F210032FE23 /* NSBundle+SMKAdditions.h in Headers */,
+				5F6447EC162D9F210032FE23 /* NSManagedObjectContext+SMKAdditions.h in Headers */,
+				5F6447ED162D9F210032FE23 /* NSObject+AssociatedObjects.h in Headers */,
+				5F6447EE162D9F210032FE23 /* NSString+SMKAdditions.h in Headers */,
+				5F6447EF162D9F210032FE23 /* NSMutableArray+SMKAdditions.h in Headers */,
+				5F6447F0162D9F210032FE23 /* SMKConvenience.h in Headers */,
+				5F6447F1162D9F210032FE23 /* SMKPlatformImports.h in Headers */,
+				5F6447F2162D9F210032FE23 /* SMKGlobalConstants.h in Headers */,
+				5F6447F3162D9F210032FE23 /* NSObject+SMKSpotifyAdditions.h in Headers */,
+				5F6447F4162D9F210032FE23 /* SMKSpotifyHelpers.h in Headers */,
+				5F6447F5162D9F210032FE23 /* SMKMPMediaHelpers.h in Headers */,
+				5F6447F6162D9F210032FE23 /* SMKManagedObjectContext.h in Headers */,
+				5F6447F7162D9F210032FE23 /* SMKArtworkCache.h in Headers */,
+				5F6447F8162D9F210032FE23 /* SMKPlatformNativeImage+SMKAdditions.h in Headers */,
+				5F6447F9162D9F210032FE23 /* SMKSFBAudioPlayer.h in Headers */,
+				5F6447FA162D9F210032FE23 /* SMKAVPlayerItem.h in Headers */,
+				5F6447FB162D9F210032FE23 /* SMKSpotifyPlayer.h in Headers */,
+				5F6447FC162D9F210032FE23 /* SMKHierarchicalLoading.h in Headers */,
+				5F6447FD162D9F210032FE23 /* SMKAlbum.h in Headers */,
+				5F6447FE162D9F210032FE23 /* SMKArtist.h in Headers */,
+				5F6447FF162D9F210032FE23 /* SMKContentSource.h in Headers */,
+				5F644800162D9F210032FE23 /* SMKPlaylist.h in Headers */,
+				5F644801162D9F210032FE23 /* SMKTrack.h in Headers */,
+				5F644802162D9F210032FE23 /* SMKPlayer.h in Headers */,
+				5F644803162D9F210032FE23 /* SMKUser.h in Headers */,
+				5F644804162D9F210032FE23 /* SMKContentObject.h in Headers */,
+				5F644805162D9F210032FE23 /* SMKArtworkObject.h in Headers */,
+				5F644806162D9F210032FE23 /* SMKWebObject.h in Headers */,
+				5F6447DE162D9ED50032FE23 /* SSKeychain.h in Headers */,
+				5F6447DF162D9ED50032FE23 /* AFHTTPClient.h in Headers */,
+				5F6447E0162D9ED50032FE23 /* AFHTTPRequestOperation.h in Headers */,
+				5F6447E1162D9ED50032FE23 /* AFImageRequestOperation.h in Headers */,
+				5F6447E2162D9ED50032FE23 /* AFJSONRequestOperation.h in Headers */,
+				5F6447E3162D9ED50032FE23 /* AFNetworkActivityIndicatorManager.h in Headers */,
+				5F6447E4162D9ED50032FE23 /* AFNetworking.h in Headers */,
+				5F6447E5162D9ED50032FE23 /* AFPropertyListRequestOperation.h in Headers */,
+				5F6447E6162D9ED50032FE23 /* AFURLConnectionOperation.h in Headers */,
+				5F6447E7162D9ED50032FE23 /* AFXMLRequestOperation.h in Headers */,
+				5F6447E8162D9ED50032FE23 /* UIImageView+AFNetworking.h in Headers */,
+				036F857515EEC45100DF72B9 /* SMKQueueController.h in Headers */,
+				036F857615EEC54500DF72B9 /* SMKAVQueuePlayer.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -1509,7 +1595,7 @@
 			buildPhases = (
 				0369923515E3EB44003BCCBE /* Sources */,
 				0369923615E3EB44003BCCBE /* Frameworks */,
-				0369923715E3EB44003BCCBE /* CopyFiles */,
+				5F6447DB162D9DA60032FE23 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -2239,7 +2325,9 @@
 					"\"$(SDKROOT)/usr/lib/system\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = include/SonoraMusicKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = include/SonoraMusicKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_TEMP_DIR)/../UninstalledProducts/include/CocoaLibSpotify\"";
@@ -2260,7 +2348,9 @@
 					"\"$(SDKROOT)/usr/lib/system\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
+				PRIVATE_HEADERS_FOLDER_PATH = include/SonoraMusicKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = include/SonoraMusicKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_TEMP_DIR)/../UninstalledProducts/include/CocoaLibSpotify\"";
