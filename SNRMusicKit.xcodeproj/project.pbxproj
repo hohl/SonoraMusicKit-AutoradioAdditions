@@ -40,7 +40,7 @@
 		03157B3215EBE3AC0048DB65 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03157B3115EBE3AC0048DB65 /* UIKit.framework */; };
 		03157B3315EBE3AC0048DB65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0369923A15E3EB44003BCCBE /* Foundation.framework */; };
 		03157B3515EBE3AC0048DB65 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03157B3415EBE3AC0048DB65 /* CoreGraphics.framework */; };
-		03157B5415EBE3CB0048DB65 /* libSNRMusicKitiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0369923915E3EB44003BCCBE /* libSNRMusicKitiOS.a */; };
+		03157B5415EBE3CB0048DB65 /* libSonoraMusicKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0369923915E3EB44003BCCBE /* libSonoraMusicKit.a */; };
 		03157B5515EBE3E00048DB65 /* SPLoginResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 03157B1315EBE35C0048DB65 /* SPLoginResources.bundle */; };
 		03157B5715EBE42A0048DB65 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03157B5615EBE42A0048DB65 /* UIKit.framework */; };
 		032BAE7915EBF361003E3135 /* SPUser+SMKUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB017415E859FB001F3A02 /* SPUser+SMKUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -321,6 +321,10 @@
 		5F644804162D9F210032FE23 /* SMKContentObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E22DA915E4A87B008351DD /* SMKContentObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F644805162D9F210032FE23 /* SMKArtworkObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E22DAB15E4A9C1008351DD /* SMKArtworkObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5F644806162D9F210032FE23 /* SMKWebObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E22DAD15E4AA7D008351DD /* SMKWebObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F644878162E805F0032FE23 /* SMKSection.h in Resources */ = {isa = PBXBuildFile; fileRef = 5F644876162E805F0032FE23 /* SMKSection.h */; };
+		5F644879162E805F0032FE23 /* SMKSection.m in Resources */ = {isa = PBXBuildFile; fileRef = 5F644877162E805F0032FE23 /* SMKSection.m */; };
+		5F64487A162E80920032FE23 /* SMKSection.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F644876162E805F0032FE23 /* SMKSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5F64487B162E809B0032FE23 /* SMKSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F644877162E805F0032FE23 /* SMKSection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -545,7 +549,7 @@
 		0369921F15E3EB0B003BCCBE /* SNRMusicKitMac-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SNRMusicKitMac-Prefix.pch"; sourceTree = "<group>"; };
 		0369922015E3EB0B003BCCBE /* SNRMusicKitMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNRMusicKitMac.h; sourceTree = "<group>"; };
 		0369922115E3EB0B003BCCBE /* SNRMusicKitMac.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNRMusicKitMac.m; sourceTree = "<group>"; };
-		0369923915E3EB44003BCCBE /* libSNRMusicKitiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSNRMusicKitiOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		0369923915E3EB44003BCCBE /* libSonoraMusicKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSonoraMusicKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		0369923A15E3EB44003BCCBE /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		0369923E15E3EB44003BCCBE /* SNRMusicKitiOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SNRMusicKitiOS-Prefix.pch"; sourceTree = "<group>"; };
 		0369923F15E3EB44003BCCBE /* SNRMusicKitiOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNRMusicKitiOS.h; sourceTree = "<group>"; };
@@ -699,6 +703,8 @@
 		5F6447C7162D8B6F0032FE23 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.0.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
 		5F6447D5162D9A010032FE23 /* SMKLastFMClient+ARAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "SMKLastFMClient+ARAdditions.h"; path = "Other Services/SMKLastFMClient+ARAdditions.h"; sourceTree = "<group>"; };
 		5F6447D6162D9A010032FE23 /* SMKLastFMClient+ARAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "SMKLastFMClient+ARAdditions.m"; path = "Other Services/SMKLastFMClient+ARAdditions.m"; sourceTree = "<group>"; };
+		5F644876162E805F0032FE23 /* SMKSection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SMKSection.h; path = ../../Autoradio/SMKSection.h; sourceTree = "<group>"; };
+		5F644877162E805F0032FE23 /* SMKSection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SMKSection.m; path = ../../Autoradio/SMKSection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -709,7 +715,7 @@
 				03457AC115EC94D900645547 /* CoreMedia.framework in Frameworks */,
 				03457AC015EC949100645547 /* AVFoundation.framework in Frameworks */,
 				032BAE8115EBF8EC003E3135 /* MediaPlayer.framework in Frameworks */,
-				03157B5415EBE3CB0048DB65 /* libSNRMusicKitiOS.a in Frameworks */,
+				03157B5415EBE3CB0048DB65 /* libSonoraMusicKit.a in Frameworks */,
 				03157B3215EBE3AC0048DB65 /* UIKit.framework in Frameworks */,
 				03157B3315EBE3AC0048DB65 /* Foundation.framework in Frameworks */,
 				03157B3515EBE3AC0048DB65 /* CoreGraphics.framework in Frameworks */,
@@ -853,9 +859,6 @@
 		036991E315E3EAE1003BCCBE = {
 			isa = PBXGroup;
 			children = (
-				5F6447C7162D8B6F0032FE23 /* SystemConfiguration.framework */,
-				5F6447C5162D8B670032FE23 /* MobileCoreServices.framework */,
-				5F6447C3162D8AC70032FE23 /* CFNetwork.framework */,
 				0371CF9815EDECD900B304CC /* Master API */,
 				03927DFB15E69EBD00E6483E /* Example Apps */,
 				03F795C315E47AB900C9F652 /* Categories */,
@@ -879,7 +882,7 @@
 			isa = PBXGroup;
 			children = (
 				0369921715E3EB0B003BCCBE /* SNRMusicKitMac.framework */,
-				0369923915E3EB44003BCCBE /* libSNRMusicKitiOS.a */,
+				0369923915E3EB44003BCCBE /* libSonoraMusicKit.a */,
 				03927E0015E69ED700E6483E /* iTunesExample.app */,
 				03FBED3B15E70FA400A67DEE /* 8tracksExample.app */,
 				03576BBA15E9695E00316930 /* SpotifyExampleMac.app */,
@@ -893,6 +896,9 @@
 			children = (
 				036991F215E3EAE1003BCCBE /* Cocoa.framework */,
 				0369923A15E3EB44003BCCBE /* Foundation.framework */,
+				5F6447C7162D8B6F0032FE23 /* SystemConfiguration.framework */,
+				5F6447C5162D8B670032FE23 /* MobileCoreServices.framework */,
+				5F6447C3162D8AC70032FE23 /* CFNetwork.framework */,
 				03157B3115EBE3AC0048DB65 /* UIKit.framework */,
 				03157B3415EBE3AC0048DB65 /* CoreGraphics.framework */,
 				036991F415E3EAE1003BCCBE /* Other Frameworks */,
@@ -1330,6 +1336,8 @@
 		03FBECA715E6E47C00A67DEE /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				5F644876162E805F0032FE23 /* SMKSection.h */,
+				5F644877162E805F0032FE23 /* SMKSection.m */,
 				03DEF87015EAE501001A1537 /* Core Data */,
 				03DEF86F15EAE4FA001A1537 /* Artwork Caching */,
 			);
@@ -1524,6 +1532,7 @@
 				5F6447E8162D9ED50032FE23 /* UIImageView+AFNetworking.h in Headers */,
 				036F857515EEC45100DF72B9 /* SMKQueueController.h in Headers */,
 				036F857615EEC54500DF72B9 /* SMKAVQueuePlayer.h in Headers */,
+				5F64487A162E80920032FE23 /* SMKSection.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1604,7 +1613,7 @@
 			);
 			name = SNRMusicKitiOS;
 			productName = SNRMusicKitiOS;
-			productReference = 0369923915E3EB44003BCCBE /* libSNRMusicKitiOS.a */;
+			productReference = 0369923915E3EB44003BCCBE /* libSonoraMusicKit.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		03927DFF15E69ED700E6483E /* iTunesExample */ = {
@@ -1778,6 +1787,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0369921E15E3EB0B003BCCBE /* InfoPlist.strings in Resources */,
+				5F644878162E805F0032FE23 /* SMKSection.h in Resources */,
+				5F644879162E805F0032FE23 /* SMKSection.m in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1967,6 +1978,7 @@
 				5F6447AC162D86ED0032FE23 /* SMKLastFMClient.m in Sources */,
 				5F6447AF162D86ED0032FE23 /* SMKLastFMClient+SMKTrack.m in Sources */,
 				5F6447D9162D9A020032FE23 /* SMKLastFMClient+ARAdditions.m in Sources */,
+				5F64487B162E809B0032FE23 /* SMKSection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2326,11 +2338,11 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRIVATE_HEADERS_FOLDER_PATH = include/SonoraMusicKit;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SonoraMusicKit;
 				PUBLIC_HEADERS_FOLDER_PATH = include/SonoraMusicKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_TEMP_DIR)/../UninstalledProducts/include/CocoaLibSpotify\"";
+				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_TEMP_DIR)/../UninstalledProducts/include\"";
 			};
 			name = Debug;
 		};
@@ -2349,11 +2361,11 @@
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRIVATE_HEADERS_FOLDER_PATH = include/SonoraMusicKit;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SonoraMusicKit;
 				PUBLIC_HEADERS_FOLDER_PATH = include/SonoraMusicKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_TEMP_DIR)/../UninstalledProducts/include/CocoaLibSpotify\"";
+				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_TEMP_DIR)/../UninstalledProducts/include\"";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

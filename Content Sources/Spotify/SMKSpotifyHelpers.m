@@ -10,11 +10,11 @@
 #import "NSObject+SMKSpotifyAdditions.h"
 #import "NSMutableArray+SMKAdditions.h"
 #import "SMKHierarchicalLoading.h"
-#if TARGET_OS_IPHONE
-#import "CocoaLibSpotify.h"
-#else
+//#if TARGET_OS_IPHONE
+//#import "CocoaLibSpotify.h"
+//#else
 #import <CocoaLibSpotify/CocoaLibSpotify.h>
-#endif
+//#endif
 
 @implementation SMKSpotifyHelpers
 + (void)loadItems:(NSArray *)items group:(dispatch_group_t)group array:(NSMutableArray *)array

@@ -8,11 +8,11 @@
 
 #import "NSObject+SMKSpotifyAdditions.h"
 
-#if TARGET_OS_IPHONE
-#import "CocoaLibSpotify.h"
-#else
+//#if TARGET_OS_IPHONE
+//#import "CocoaLibSpotify.h"
+//#else
 #import <CocoaLibSpotify/CocoaLibSpotify.h>
-#endif
+//#endif
 
 @implementation NSObject (SMKSpotifyAdditions)
 

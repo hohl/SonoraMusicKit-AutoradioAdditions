@@ -7,11 +7,25 @@
 //
 
 #import "SMKMPMediaContentSource.h"
+#import "SMKSection.h"
 #import <MediaPlayer/MediaPlayer.h>
 
 @interface SMKMPMediaPlaylist (SMKInternal)
 - (id)initWithRepresentedObject:(MPMediaItemCollection*)object contentSource:(id<SMKContentSource>)contentSource;
 @end
+
+@interface SMKMPMediaArtist (SMKInternal)
+- (id)initWithRepresentedObject:(MPMediaItemCollection *)object contentSource:(id<SMKContentSource>)contentSource;
+@end
+
+@interface SMKMPMediaTrack (SMKInternal)
+- (id)initWithRepresentedObject:(MPMediaItem*)object contentSource:(id<SMKContentSource>)contentSource;
+@end
+
+@interface SMKMPMediaAlbum (SMKInternal)
+- (id)initWithRepresentedObject:(MPMediaItemCollection *)object contentSource:(id<SMKContentSource>)contentSource;
+@end
+
 
 @implementation SMKMPMediaContentSource
 
@@ -52,4 +66,75 @@
 }
 
 + (Class)predicateClass { return [SMKMPMediaPredicate class]; }
+
+
+- (void)fetchArtistsWithSortDescriptors:(NSArray *)sortDescriptors
+                              predicate:(SMKMPMediaPredicate *)predicate
+                      completionHandler:(void(^)(NSArray *artists, NSArray *sections, NSError *error))handler
+{
+    __weak SMKMPMediaContentSource *weakSelf = self;
+    dispatch_async(self.queryQueue, ^{
+        SMKMPMediaContentSource *strongSelf = weakSelf;
+        MPMediaQuery *artistsQuery = [MPMediaQuery artistsQuery];
+        if (predicate) artistsQuery.filterPredicates = predicate.predicates;
+        NSArray *collections = artistsQuery.collections;
+        NSMutableArray *artists = [NSMutableArray arrayWithCapacity:[collections count]];
+        [collections enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            SMKMPMediaArtist *artist = [[SMKMPMediaArtist alloc] initWithRepresentedObject:obj contentSource:strongSelf];
+            [artists addObject:artist];
+        }];
+        NSMutableArray *artistSections = nil;
+        if ([sortDescriptors count])
+        {
+            [artists sortUsingDescriptors:sortDescriptors];
+        }
+        else
+        {
+            NSArray *collectionSections = artistsQuery.collectionSections;
+            artistSections = [NSMutableArray arrayWithCapacity:[collectionSections count]];
+            [collectionSections enumerateObjectsUsingBlock:^(MPMediaQuerySection *obj, NSUInteger idx, BOOL *stop) {
+                SMKSection *section = [[SMKSection alloc] initWithTitle:obj.title range:obj.range];
+                [artistSections addObject:section];
+            }];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (handler) handler(artists, artistSections, nil);
+        });
+    });
+}
+
+- (void)fetchAlbumsWithSortDescriptors:(NSArray *)sortDescriptors
+                             predicate:(SMKMPMediaPredicate *)predicate
+                     completionHandler:(void(^)(NSArray *albums, NSArray *sections, NSError *error))handler
+{
+    __weak SMKMPMediaContentSource *weakSelf = self;
+    dispatch_async(self.queryQueue, ^{
+        SMKMPMediaContentSource *strongSelf = weakSelf;
+        MPMediaQuery *albumsQuery = [MPMediaQuery albumsQuery];
+        if (predicate) albumsQuery.filterPredicates = predicate.predicates;
+        NSArray *collections = albumsQuery.collections;
+        NSMutableArray *albums = [NSMutableArray arrayWithCapacity:[collections count]];
+        [collections enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            SMKMPMediaAlbum *album = [[SMKMPMediaAlbum alloc] initWithRepresentedObject:obj contentSource:strongSelf];
+            [albums addObject:album];
+        }];
+        NSMutableArray *albumSections = nil;
+        if ([sortDescriptors count]) {
+            [albums sortUsingDescriptors:sortDescriptors];
+        }
+        else
+        {
+            NSArray *collectionSections = albumsQuery.collectionSections;
+            albumSections = [NSMutableArray arrayWithCapacity:[collectionSections count]];
+            [collectionSections enumerateObjectsUsingBlock:^(MPMediaQuerySection *obj, NSUInteger idx, BOOL *stop) {
+                SMKSection *section = [[SMKSection alloc] initWithTitle:obj.title range:obj.range];
+                [albumSections addObject:section];
+            }];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (handler) handler(albums, albumSections, nil);
+        });
+    });
+}
+
 @end
