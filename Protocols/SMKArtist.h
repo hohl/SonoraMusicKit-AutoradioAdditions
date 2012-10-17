@@ -21,4 +21,10 @@
 - (void)fetchAlbumsWithSortDescriptors:(NSArray *)sortDescriptors
                              predicate:(id)predicate
                      completionHandler:(void(^)(NSArray *albums, NSError *error))handler;
+
+@optional
+/**
+ @return The genre of the song.
+ */
+- (NSString *)genre;
 @end

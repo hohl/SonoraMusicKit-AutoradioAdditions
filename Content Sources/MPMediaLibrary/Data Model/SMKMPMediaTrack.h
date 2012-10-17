@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "SMKTrack.h"
+#import "SMKArtworkObject.h"
 
-@interface SMKMPMediaTrack : NSObject <SMKTrack>
+@interface SMKMPMediaTrack : NSObject <SMKTrack, SMKArtworkObject>
 @property (nonatomic, strong) MPMediaItem *representedObject;
 @property (nonatomic, assign, readonly) id<SMKContentSource> contentSource;
 

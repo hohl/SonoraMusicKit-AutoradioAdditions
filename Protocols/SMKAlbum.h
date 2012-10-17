@@ -50,4 +50,9 @@
  @return Whether the album is a compilation.
  */
 - (BOOL)isCompilation;
+
+/**
+ @return The genre of the song.
+ */
+- (NSString *)genre;
 @end

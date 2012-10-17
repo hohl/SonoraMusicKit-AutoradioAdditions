@@ -152,4 +152,9 @@
         });
     });
 }
+
+- (NSString *)genre
+{
+    return [self.representedObject.representativeItem valueForProperty:MPMediaItemPropertyGenre];
+}
 @end

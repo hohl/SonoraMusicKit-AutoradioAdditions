@@ -11,6 +11,7 @@
 #import "SMKMPMediaHelpers.h"
 #import "SMKAVQueuePlayer.h"
 #import "SMKMPMusicPlayer.h"
+#import "SMKMPMediaContentSource.h"
 
 @interface SMKMPMediaAlbum (SMKInternal)
 - (id)initWithRepresentedObject:(MPMediaItem*)object contentSource:(id<SMKContentSource>)contentSource;
@@ -128,4 +129,42 @@
 {
     return [self.representedObject valueForProperty:MPMediaItemPropertyAssetURL];
 }
+
+#pragma mark - SMKArtworkObject
+
+- (void)fetchArtworkWithSize:(SMKArtworkSize)size
+           completionHandler:(void(^)(SMKPlatformNativeImage *image, NSError *error))handler
+{
+    CGSize targetSize = CGSizeZero;
+    switch (size) {
+        case SMKArtworkSizeSmallest:
+            targetSize = CGSizeMake(72.0, 72.0);
+            break;
+        case SMKArtworkSizeSmall:
+            targetSize = CGSizeMake(150.0, 150.0);
+            break;
+        case SMKArtworkSizeLarge:
+            targetSize = CGSizeMake(300.0, 300.0);
+            break;
+        case SMKArtworkSizeLargest:
+            targetSize = CGSizeMake(600.0, 600.0);
+        default:
+            break;
+    }
+    [self fetchArtworkWithTargetSize:targetSize completionHandler:handler];
+}
+
+- (void)fetchArtworkWithTargetSize:(CGSize)size completionHandler:(void(^)(SMKPlatformNativeImage *image, NSError *error))handler
+{
+    __weak SMKMPMediaTrack *weakSelf = self;
+    dispatch_async([(SMKMPMediaContentSource*)self.contentSource queryQueue], ^{
+        SMKMPMediaTrack *strongSelf = weakSelf;
+        MPMediaItemArtwork *artwork = [strongSelf.representedObject valueForProperty:MPMediaItemPropertyArtwork];
+        UIImage *image = [artwork imageWithSize:size];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (handler) handler(image, nil);
+        });
+    });
+}
+
 @end
