@@ -79,6 +79,11 @@
     return [(SMKAVPlayerItem *)self.audioPlayer.currentItem SMK_track];
 }
 
++ (NSSet *)keyPathsForValuesAffectingCurrentTrack
+{
+    return [NSSet setWithObject:@"audioPlayer.currentItem"];
+}
+
 - (void)pause
 {
     [self.audioPlayer pause];

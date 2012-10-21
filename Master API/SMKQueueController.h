@@ -17,6 +17,10 @@ enum {
 };
 typedef NSUInteger SMKQueueControllerRepeatMode;
 
+// Notifications used to handle transitions between tracks.
+static const NSString *SMKQueueTransitToNextTrackNotification = @"SMKQueueControllerTransitToNextTrackNotification";
+static const NSString *SMKQueueTransitToPreviousTrackNotification = @"SMKQueueControllerTransitToPreviousTrackNotification";
+
 @interface SMKQueueController : NSObject
 
 #pragma mark - Queueing
@@ -33,6 +37,8 @@ typedef NSUInteger SMKQueueControllerRepeatMode;
 
 @property (nonatomic, strong, readonly) id<SMKPlayer> currentPlayer;
 @property (nonatomic, strong, readonly) id<SMKTrack> currentTrack;
+@property (nonatomic, strong, readonly) id<SMKTrack> nextTrack;
+@property (nonatomic, strong, readonly) id<SMKTrack> previousTrack;
 @property (nonatomic, assign, readonly) NSUInteger indexOfCurrentTrack;
 @property (nonatomic, assign, readonly) BOOL playing;
 @property (nonatomic, assign) BOOL shuffle;

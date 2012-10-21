@@ -167,6 +167,7 @@
 
 - (IBAction)next:(id)sender
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:(NSString *)SMKQueueTransitToNextTrackNotification object:self];
     if ([[self.currentPlayer class] supportsPreloading] && [self.currentPlayer preloadedTrack]) {
         [self.currentPlayer skipToPreloadedTrack];
         self.indexOfCurrentTrack++;
@@ -180,7 +181,10 @@
 
 - (IBAction)previous:(id)sender
 {
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:(NSString *)SMKQueueTransitToPreviousTrackNotification object:self];
+    if (self.indexOfCurrentTrack > 0)
+        [self _beginPlayingItemAtIndex:self.indexOfCurrentTrack - 1];
+    [self _recalculateIndexOfCurrentTrack];
 }
 
 - (IBAction)seekForward:(id)sender
@@ -191,6 +195,23 @@
 - (IBAction)seekBackward:(id)sender
 {
     [self.currentPlayer seekBackward];
+}
+
+#pragma mark - Dynamic Properties
+@dynamic nextTrack;
+- (id<SMKTrack>)nextTrack
+{
+    // ToDo: fix this temp solution
+    NSUInteger nextIndex = self.indexOfCurrentTrack + 1;
+    return nextIndex < [self.tracks count] ? [self.tracks objectAtIndex:nextIndex] : nil;
+}
+@dynamic previousTrack;
+- (id<SMKTrack>)previousTrack
+{
+    // ToDo: fix this temp solution
+    if (self.indexOfCurrentTrack == 0) return nil;
+    NSInteger previousIndex = self.indexOfCurrentTrack - 1;
+    return previousIndex < [self.tracks count] ? [self.tracks objectAtIndex:previousIndex] : nil;
 }
 
 #pragma mark - Private
