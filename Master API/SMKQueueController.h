@@ -50,6 +50,7 @@ static const NSString *SMKQueueTransitToPreviousTrackNotification = @"SMKQueueCo
 - (IBAction)play:(id)sender;
 - (IBAction)pause:(id)sender;
 - (IBAction)playPause:(id)sender;
+- (void)playTrackAtIndex:(NSUInteger)trackIndex;
 - (IBAction)next:(id)sender;
 - (IBAction)previous:(id)sender;
 - (IBAction)seekForward:(id)sender;

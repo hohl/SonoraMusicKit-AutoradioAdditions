@@ -166,6 +166,14 @@
     [self playing] ? [self pause:nil] : [self play:nil];
 }
 
+- (void)playTrackAtIndex:(NSUInteger)trackIndex
+{
+    if (!self.currentPlayer && trackIndex < [self.items count] && self.indexOfCurrentTrack != trackIndex) {
+        [self _beginPlayingItemAtIndex:trackIndex];
+    }
+    [self.currentPlayer play];
+}
+
 - (IBAction)next:(id)sender
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:(NSString *)SMKQueueTransitToNextTrackNotification object:self];
