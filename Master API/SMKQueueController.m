@@ -176,17 +176,18 @@
 
 - (IBAction)next:(id)sender
 {
-    // ToDo: Add support for shuffle mode!
     [[NSNotificationCenter defaultCenter] postNotificationName:(NSString *)SMKQueueTransitToNextTrackNotification object:self];
+    // ToDo: Add support for shuffle mode!
     if ([[self.currentPlayer class] supportsPreloading] && [self.currentPlayer preloadedTrack]) {
         [self.currentPlayer skipToPreloadedTrack];
         self.indexOfCurrentTrack++;
     } else {
         NSUInteger nextIndex = self.indexOfCurrentTrack + 1;
+        if (self.repeatMode == SMKQueueControllerRepeatModeAll) {
+            while (nextIndex >= [self.tracks count]) nextIndex -= [self.tracks count];
+        }
         if (nextIndex < [self countOfItems]) {
             [self _beginPlayingItemAtIndex:nextIndex];
-        } else if (self.repeatMode == SMKQueueControllerRepeatModeAll && [self countOfItems]) {
-            [self _beginPlayingItemAtIndex:0];
         }
     }
     [self _recalculateIndexOfCurrentTrack];
@@ -194,10 +195,13 @@
 
 - (IBAction)previous:(id)sender
 {
-    // ToDo: Add support for shuffle mode!
     [[NSNotificationCenter defaultCenter] postNotificationName:(NSString *)SMKQueueTransitToPreviousTrackNotification object:self];
-    if (self.indexOfCurrentTrack > 0)
-        [self _beginPlayingItemAtIndex:self.indexOfCurrentTrack - 1];
+    // ToDo: Add support for shuffle mode!
+    if (self.repeatMode == SMKQueueControllerRepeatModeAll && self.indexOfCurrentTrack == 0) {
+        [self _beginPlayingItemAtIndex:([self.tracks count] - 1)];
+    } else if (self.indexOfCurrentTrack > 0) {
+        [self _beginPlayingItemAtIndex:(self.indexOfCurrentTrack - 1)];
+    }
     [self _recalculateIndexOfCurrentTrack];
 }
 
@@ -226,11 +230,11 @@
 - (id<SMKTrack>)previousTrack
 {
     // ToDo: Add support for shuffle mode!
-    NSInteger previousIndex = self.indexOfCurrentTrack - 1;
-    if (self.repeatMode == SMKQueueControllerRepeatModeAll) {
-        while (previousIndex < 0) previousIndex += [self.tracks count];
+    NSUInteger previousIndex = self.indexOfCurrentTrack - 1;
+    if (self.repeatMode == SMKQueueControllerRepeatModeAll && self.indexOfCurrentTrack == 0) {
+        previousIndex = [self.tracks count] - 1;
     }
-    return previousIndex >= 0 && previousIndex < [self.tracks count] ? [self.tracks objectAtIndex:previousIndex] : nil;
+    return previousIndex < [self.tracks count] ? [self.tracks objectAtIndex:previousIndex] : nil;
 }
 
 + (NSSet *)keyPathsForValuesAffectingPreviousTrack
