@@ -58,6 +58,7 @@
 {
     [self pause:nil];
     self.items = [NSMutableArray array];
+    self.currentPlayer = nil;
 }
 
 - (void)removeTrack:(id<SMKTrack>)track
@@ -173,8 +174,11 @@
         self.indexOfCurrentTrack++;
     } else {
         NSUInteger nextIndex = self.indexOfCurrentTrack + 1;
-        if (nextIndex < [self countOfItems])
+        if (nextIndex < [self countOfItems]) {
             [self _beginPlayingItemAtIndex:nextIndex];
+        } //else if (self.repeatMode == SMKQueueControllerRepeatModeAll && [self countOfItems]) {
+        //    [self _beginPlayingItemAtIndex:0];
+        //}
     }
     [self _recalculateIndexOfCurrentTrack];
 }
