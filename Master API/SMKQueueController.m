@@ -176,6 +176,7 @@
 
 - (IBAction)next:(id)sender
 {
+    // ToDo: Add support for shuffle mode!
     [[NSNotificationCenter defaultCenter] postNotificationName:(NSString *)SMKQueueTransitToNextTrackNotification object:self];
     if ([[self.currentPlayer class] supportsPreloading] && [self.currentPlayer preloadedTrack]) {
         [self.currentPlayer skipToPreloadedTrack];
@@ -184,15 +185,16 @@
         NSUInteger nextIndex = self.indexOfCurrentTrack + 1;
         if (nextIndex < [self countOfItems]) {
             [self _beginPlayingItemAtIndex:nextIndex];
-        } //else if (self.repeatMode == SMKQueueControllerRepeatModeAll && [self countOfItems]) {
-        //    [self _beginPlayingItemAtIndex:0];
-        //}
+        } else if (self.repeatMode == SMKQueueControllerRepeatModeAll && [self countOfItems]) {
+            [self _beginPlayingItemAtIndex:0];
+        }
     }
     [self _recalculateIndexOfCurrentTrack];
 }
 
 - (IBAction)previous:(id)sender
 {
+    // ToDo: Add support for shuffle mode!
     [[NSNotificationCenter defaultCenter] postNotificationName:(NSString *)SMKQueueTransitToPreviousTrackNotification object:self];
     if (self.indexOfCurrentTrack > 0)
         [self _beginPlayingItemAtIndex:self.indexOfCurrentTrack - 1];
@@ -209,21 +211,36 @@
     [self.currentPlayer seekBackward];
 }
 
-#pragma mark - Dynamic Properties
-@dynamic nextTrack;
+#pragma mark - Additions for Autoradio Music Player
+
 - (id<SMKTrack>)nextTrack
 {
-    // ToDo: fix this temp solution
+    // ToDo: Add support for shuffle mode!
     NSUInteger nextIndex = self.indexOfCurrentTrack + 1;
+    if (self.repeatMode == SMKQueueControllerRepeatModeAll) {
+        while (nextIndex >= [self.tracks count]) nextIndex -= [self.tracks count];
+    }
     return nextIndex < [self.tracks count] ? [self.tracks objectAtIndex:nextIndex] : nil;
 }
-@dynamic previousTrack;
+
 - (id<SMKTrack>)previousTrack
 {
-    // ToDo: fix this temp solution
-    if (self.indexOfCurrentTrack == 0) return nil;
+    // ToDo: Add support for shuffle mode!
     NSInteger previousIndex = self.indexOfCurrentTrack - 1;
-    return previousIndex < [self.tracks count] ? [self.tracks objectAtIndex:previousIndex] : nil;
+    if (self.repeatMode == SMKQueueControllerRepeatModeAll) {
+        while (previousIndex < 0) previousIndex += [self.tracks count];
+    }
+    return previousIndex >= 0 && previousIndex < [self.tracks count] ? [self.tracks objectAtIndex:previousIndex] : nil;
+}
+
++ (NSSet *)keyPathsForValuesAffectingPreviousTrack
+{
+    return [NSSet setWithArray:@[@"currentPlayer.currentTrack", @"shuffle", @"repeatMode"]];
+}
+
++ (NSSet *)keyPathsForValuesAffectingNextTrack
+{
+    return [NSSet setWithArray:@[@"currentPlayer.currentTrack", @"shuffle", @"repeatMode"]];
 }
 
 #pragma mark - Private
@@ -272,7 +289,11 @@
     }];
     [player setFinishedTrackBlock:^(id<SMKPlayer> player, id<SMKTrack> track, NSError *error) {
         SMKQueueController *strongSelf = weakSelf;
-        [strongSelf next:nil];
+        if (self.repeatMode == SMKQueueControllerRepeatModeOne && [player supportsSeeking]) {
+            [strongSelf _beginPlayingItemAtIndex:index];
+        } else {
+            [strongSelf next:nil];
+        }
     }];
 }
 
