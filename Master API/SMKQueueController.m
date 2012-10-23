@@ -7,6 +7,7 @@
 //
 
 #import "SMKQueueController.h"
+#import "NSMutableArray+SMKAdditions.h"
 
 @interface SMKQueueItem : NSObject
 @property (nonatomic, retain) id<SMKTrack> track;
@@ -18,7 +19,10 @@
 @property (nonatomic, assign, readwrite) NSUInteger indexOfCurrentTrack;
 @end
 
-@implementation SMKQueueController
+@implementation SMKQueueController {
+    NSArray *_shuffledTrackIndexes;
+    NSArray *_continualTrackIndexes;
+}
 - (id)init
 {
     if ((self = [super init])) {
@@ -177,17 +181,14 @@
 - (IBAction)next:(id)sender
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:(NSString *)SMKQueueTransitToNextTrackNotification object:self];
-    // ToDo: Add support for shuffle mode!
+
     if ([[self.currentPlayer class] supportsPreloading] && [self.currentPlayer preloadedTrack]) {
         [self.currentPlayer skipToPreloadedTrack];
         self.indexOfCurrentTrack++;
     } else {
-        NSUInteger nextIndex = self.indexOfCurrentTrack + 1;
-        if (self.repeatMode == SMKQueueControllerRepeatModeAll) {
-            while (nextIndex >= [self.tracks count]) nextIndex -= [self.tracks count];
-        }
-        if (nextIndex < [self countOfItems]) {
-            [self _beginPlayingItemAtIndex:nextIndex];
+        NSUInteger nextTrackIndex = [self _indexOfNextTrack];
+        if (nextTrackIndex != NSNotFound) {
+            [self _beginPlayingItemAtIndex:nextTrackIndex];
         }
     }
     [self _recalculateIndexOfCurrentTrack];
@@ -196,11 +197,10 @@
 - (IBAction)previous:(id)sender
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:(NSString *)SMKQueueTransitToPreviousTrackNotification object:self];
-    // ToDo: Add support for shuffle mode!
-    if (self.repeatMode == SMKQueueControllerRepeatModeAll && self.indexOfCurrentTrack == 0) {
-        [self _beginPlayingItemAtIndex:([self.tracks count] - 1)];
-    } else if (self.indexOfCurrentTrack > 0) {
-        [self _beginPlayingItemAtIndex:(self.indexOfCurrentTrack - 1)];
+
+    NSUInteger previousTrackIndex = [self _indexOfPreviousTrack];
+    if (previousTrackIndex != NSNotFound) {
+        [self _beginPlayingItemAtIndex:previousTrackIndex];
     }
     [self _recalculateIndexOfCurrentTrack];
 }
@@ -219,22 +219,20 @@
 
 - (id<SMKTrack>)nextTrack
 {
-    // ToDo: Add support for shuffle mode!
-    NSUInteger nextIndex = self.indexOfCurrentTrack + 1;
-    if (self.repeatMode == SMKQueueControllerRepeatModeAll) {
-        while (nextIndex >= [self.tracks count]) nextIndex -= [self.tracks count];
+    NSUInteger nextTrackIndex = [self _indexOfNextTrack];
+    if (nextTrackIndex == NSNotFound) {
+        return nil;
     }
-    return nextIndex < [self.tracks count] ? [self.tracks objectAtIndex:nextIndex] : nil;
+    return [self.tracks objectAtIndex:nextTrackIndex];
 }
 
 - (id<SMKTrack>)previousTrack
 {
-    // ToDo: Add support for shuffle mode!
-    NSUInteger previousIndex = self.indexOfCurrentTrack - 1;
-    if (self.repeatMode == SMKQueueControllerRepeatModeAll && self.indexOfCurrentTrack == 0) {
-        previousIndex = [self.tracks count] - 1;
+    NSUInteger previousTrackIndex = [self _indexOfPreviousTrack];
+    if (previousTrackIndex == NSNotFound) {
+        return nil;
     }
-    return previousIndex < [self.tracks count] ? [self.tracks objectAtIndex:previousIndex] : nil;
+    return [self.tracks objectAtIndex:previousTrackIndex];
 }
 
 + (NSSet *)keyPathsForValuesAffectingPreviousTrack
@@ -304,6 +302,69 @@
 - (void)_recalculateIndexOfCurrentTrack
 {
     self.indexOfCurrentTrack = [self _indexOfTrack:self.currentTrack];
+}
+
+//
+// The following method returns an array of NSNumbers. The NSNumbers represent track indexes. The order of the indexes
+// in the array represent the order in which the tracks should get played. This allows shuffling.
+//
+- (NSArray *)_arrayOfOrderedTrackIndexes
+{
+    NSUInteger tracksCount = [self.tracks count];
+    if (self.shuffle) {
+        if (tracksCount == [_shuffledTrackIndexes count]) {
+            return _shuffledTrackIndexes;
+        }
+        _continualTrackIndexes = [NSMutableArray SMK_arrayWithNumbersCountingTo:tracksCount];
+        _shuffledTrackIndexes = [_continualTrackIndexes sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
+            // we abuse the sorter by just returning random values, this shuffles the ordered list
+            switch (arc4random_uniform(3)) {
+                case 0:
+                    return NSOrderedAscending;
+                case 1:
+                    return NSOrderedDescending;
+                default:
+                    return NSOrderedSame;
+            }
+        }];
+        return _shuffledTrackIndexes;
+    } else {
+        if (tracksCount == [_continualTrackIndexes count]) {
+            return _continualTrackIndexes;
+        }
+        _continualTrackIndexes = [NSMutableArray SMK_arrayWithNumbersCountingTo:tracksCount];
+        return _continualTrackIndexes;
+    }
+}
+
+- (NSUInteger)_indexOfNextTrack
+{
+    NSArray *orderedTrackIndexes = [self _arrayOfOrderedTrackIndexes];
+    NSUInteger indexInOrderedArray = [orderedTrackIndexes indexOfObject:[NSNumber numberWithUnsignedInteger:self.indexOfCurrentTrack]];
+    NSUInteger nextIndexInOrderedArray = indexInOrderedArray + 1;
+    if (self.repeatMode == SMKQueueControllerRepeatModeAll) {
+        while (nextIndexInOrderedArray >= [orderedTrackIndexes count]) nextIndexInOrderedArray -= [orderedTrackIndexes count];
+    }
+    if (nextIndexInOrderedArray < [orderedTrackIndexes count]) {
+        return [[orderedTrackIndexes objectAtIndex:nextIndexInOrderedArray] unsignedIntegerValue];
+    } else {
+        return NSNotFound;
+    }
+}
+
+- (NSUInteger)_indexOfPreviousTrack
+{
+    NSArray *orderedTrackIndexes = [self _arrayOfOrderedTrackIndexes];
+    NSUInteger indexInOrderedArray = [orderedTrackIndexes indexOfObject:[NSNumber numberWithUnsignedInteger:self.indexOfCurrentTrack]];
+    if ((self.repeatMode == SMKQueueControllerRepeatModeAll) && indexInOrderedArray == 0) {
+        indexInOrderedArray = [orderedTrackIndexes count];
+    }
+    if (indexInOrderedArray > 0) {
+        return [[orderedTrackIndexes objectAtIndex:(indexInOrderedArray - 1)] unsignedIntegerValue];
+    } else {
+        return NSNotFound;
+    }
+    
 }
 @end
 

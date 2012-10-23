@@ -16,4 +16,13 @@
     if ([sortDescriptors count])
         [self sortUsingDescriptors:sortDescriptors];
 }
+
++ (NSMutableArray *)SMK_arrayWithNumbersCountingTo:(NSUInteger)limit
+{
+    NSMutableArray *newArray = [NSMutableArray arrayWithCapacity:limit];
+    for (NSUInteger index = 0; index < limit; ++index) {
+        [newArray addObject:[NSNumber numberWithUnsignedInteger:index]];
+    }
+    return newArray;
+}
 @end

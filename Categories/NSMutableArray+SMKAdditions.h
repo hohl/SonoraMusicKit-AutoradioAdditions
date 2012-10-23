@@ -14,4 +14,10 @@
  @param predicate NSPredicate to filter the array
  */
 - (void)SMK_processWithSortDescriptors:(NSArray *)sortDescriptors predicate:(NSPredicate*)predicate;
+/**
+ @discussion If you pass 3 as limit you will result with @[@0,@1,@2].
+ @param limit number of items to create in the new array.
+ @return an array with counting NSNumber starting by 0
+ */
++ (NSMutableArray *)SMK_arrayWithNumbersCountingTo:(NSUInteger)limit;
 @end
