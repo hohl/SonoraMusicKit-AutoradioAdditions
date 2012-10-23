@@ -168,7 +168,7 @@
 
 - (void)playTrackAtIndex:(NSUInteger)trackIndex
 {
-    if (!self.currentPlayer && trackIndex < [self.items count] && self.indexOfCurrentTrack != trackIndex) {
+    if ((!self.currentPlayer || self.indexOfCurrentTrack != trackIndex) && trackIndex < [self.items count]) {
         [self _beginPlayingItemAtIndex:trackIndex];
     }
     [self.currentPlayer play];

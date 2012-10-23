@@ -108,7 +108,7 @@
 
 - (void)seekToPlaybackTime:(NSTimeInterval)time
 {
-    [self.audioPlayer seekToTime:CMTimeMakeWithSeconds(time, self.audioPlayer.rate)];
+    [self.audioPlayer seekToTime:CMTimeMakeWithSeconds(time, 1.0)];
 }
 
 - (void)seekBackward
