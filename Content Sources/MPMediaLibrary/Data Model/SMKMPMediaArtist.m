@@ -14,6 +14,10 @@
 - (id)initWithRepresentedObject:(MPMediaItemCollection *)object contentSource:(id<SMKContentSource>)contentSource;
 @end
 
+@interface SMKMPMediaTrack (SMKInternal)
+- (id)initWithRepresentedObject:(MPMediaItem*)object contentSource:(id<SMKContentSource>)contentSource;
+@end
+
 @implementation SMKMPMediaArtist
 
 - (id)initWithRepresentedObject:(MPMediaItemCollection *)object contentSource:(id<SMKContentSource>)contentSource
@@ -77,6 +81,37 @@
                 if (handler) handler(nil, nil);
             });
         }
+    });
+}
+
+- (void)fetchTracksWithSortDescriptors:(NSArray *)sortDescriptors
+                             predicate:(id)predicate
+                     completionHandler:(void(^)(NSArray *tracks, NSError *error))handler
+{
+    __weak SMKMPMediaArtist *weakSelf = self;
+    dispatch_async([(SMKMPMediaContentSource*)self.contentSource queryQueue], ^{
+        SMKMPMediaArtist *strongSelf = weakSelf;
+        NSMutableArray *tracks = [NSMutableArray array];
+        NSArray *items = nil;
+        if (!predicate) {
+            items = strongSelf.representedObject.items;
+        } else {
+            MPMediaQuery *songsQuery = [MPMediaQuery songsQuery];
+            MPMediaPropertyPredicate *artistPredicate = [MPMediaPropertyPredicate predicateWithValue:[strongSelf.representedObject valueForProperty:MPMediaItemPropertyPersistentID] forProperty:MPMediaItemPropertyArtistPersistentID];
+            NSMutableSet *predicates = [NSMutableSet setWithObject:artistPredicate];
+            if (predicate)
+                [predicates addObjectsFromArray:[[(SMKMPMediaPredicate *)predicate predicates] allObjects]];
+            items = songsQuery.items;
+        }
+        [items enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            SMKMPMediaTrack *track = [[SMKMPMediaTrack alloc] initWithRepresentedObject:obj contentSource:strongSelf.contentSource];
+            [tracks addObject:track];
+        }];
+        if ([sortDescriptors count])
+            [tracks sortUsingDescriptors:sortDescriptors];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (handler) handler(tracks, nil);
+        });
     });
 }
 

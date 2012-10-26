@@ -22,7 +22,22 @@
                              predicate:(id)predicate
                      completionHandler:(void(^)(NSArray *albums, NSError *error))handler;
 
+
+@optional // THIS SHOULD BE REQUIRED BUT THERE ARE SOME IMPLEMENTATIONS FOR IT MISSING:
+/**
+ This method will fetch the tracks asynchronously and call the completion handler when finished.
+ @param sortDescriptors Array of NSSortDescriptor objects used to sort the content
+ @param predicate A predicate to filter the results with. Use SMKContentSource +predicateClass to find out which
+ class the content source expects its predicate to use.
+ @discussion This method is asynchronous and will return immediately.
+ */
+- (void)fetchTracksWithSortDescriptors:(NSArray *)sortDescriptors
+                             predicate:(id)predicate
+                     completionHandler:(void(^)(NSArray *tracks, NSError *error))handler;
+
+
 @optional
+
 /**
  @return The genre of the song.
  */
