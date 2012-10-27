@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "SMKTrack.h"
 #import "SMKPlayer.h"
+#import "SMKPlaylist.h"
 
 enum {
     SMKQueueControllerRepeatModeNone = 0,
@@ -21,7 +22,7 @@ typedef NSUInteger SMKQueueControllerRepeatMode;
 static const NSString *SMKQueueTransitToNextTrackNotification = @"SMKQueueControllerTransitToNextTrackNotification";
 static const NSString *SMKQueueTransitToPreviousTrackNotification = @"SMKQueueControllerTransitToPreviousTrackNotification";
 
-@interface SMKQueueController : NSObject
+@interface SMKQueueController : NSObject<SMKPlaylist>
 
 #pragma mark - Queueing
 

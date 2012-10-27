@@ -15,3 +15,5 @@ NSInteger const SMKPlayerErrorFailedToEnqueueTrack          = 3;
 
 NSInteger const SMKCoreDataErrorDataStoreNotAFolder         = 4;
 NSInteger const SMKCoreDataErrorFailedToInitializeStore     = 5;
+
+NSInteger const SMKQueuePlayerErrorOutOfIndex               = 6;

@@ -7,6 +7,8 @@
 //
 
 #import "SMKQueueController.h"
+#import "SMKErrorCodes.h"
+#import "NSError+SMKAdditions.h"
 #import "NSMutableArray+SMKAdditions.h"
 
 @interface SMKQueueItem : NSObject
@@ -54,7 +56,7 @@
     } else {
         NSUInteger index = [self _indexOfTrack:track];
         if (index != NSNotFound)
-            [self insertObject:newTrack inItemsAtIndex:index+1];
+            [self insertObject:[self _queueItemForTrack:newTrack] inItemsAtIndex:index+1];
     }
 }
 
@@ -245,6 +247,131 @@
     return [NSSet setWithArray:@[@"currentPlayer.currentTrack", @"shuffle", @"repeatMode"]];
 }
 
+#pragma mark - SMKPlaylist
+
++ (NSSet *)supportedSortKeys
+{
+    return [NSSet set];
+}
+
+- (id<SMKContentSource>)contentSource
+{
+    return nil;
+}
+
+- (NSString *)name
+{
+    return NSLocalizedString(@"Queue", @"name of the queue playlist");
+}
+
+- (NSString *)uniqueIdentifier
+{
+    return [self description];
+}
+
+- (void)fetchTracksWithCompletionHandler:(void (^)(NSArray *, NSError *))handler
+{
+    NSArray *itemsToFetch = [NSArray arrayWithArray:self.items];
+    NSMutableArray *tracks = [NSMutableArray arrayWithCapacity:[itemsToFetch count]];
+    [itemsToFetch enumerateObjectsUsingBlock:^(SMKQueueItem *queueItem, NSUInteger index, BOOL *stop) {
+        [tracks addObject:[queueItem track]];
+    }];
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+        handler(tracks, nil);
+    });
+}
+
+- (BOOL)isEditable
+{
+    return YES;
+}
+
+- (NSString *)extendedDescription
+{
+    return NSLocalizedString(@"current playback queue", @"extended description of the queue playlist");
+}
+
+- (void)moveTracksAtIndexes:(NSIndexSet*)indexes toIndex:(NSUInteger)index completionHandler:(void(^)(NSError *error))handler {
+    __block NSError *error = nil;
+    NSMutableArray *tracks = [NSMutableArray arrayWithCapacity:[indexes count]];
+    [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+        if (index < [self.items count]) {
+            SMKQueueItem *queueItem = [self.items objectAtIndex:index];
+            [tracks addObject:[queueItem track]];
+        } else {
+            error = [NSError SMK_errorWithCode:SMKQueuePlayerErrorOutOfIndex description:[NSString stringWithFormat:@"Index %d is out of the array of items (%d) in playback queue!", index, [self.items count]]];
+            *stop = YES;
+        }
+    }];
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+        if (error) {
+            handler(error);
+        } else {
+            [self moveTracks:tracks toIndex:index completionHandler:handler];
+        }
+    });
+}
+
+- (void)moveTracks:(NSArray*)tracks toIndex:(NSUInteger)index completionHandler:(void(^)(NSError *error))handler {
+    if (index >= [self.items count]) {
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            handler([NSError SMK_errorWithCode:SMKQueuePlayerErrorOutOfIndex
+                                   description:[NSString stringWithFormat:@"Index %d is out of queue (count: %d)", index, [self.items count]]]);
+        });
+        return;
+    }
+    
+    __block id<SMKTrack> previousTrack = [[self.items objectAtIndex:index] track];
+    [tracks enumerateObjectsUsingBlock:^(id<SMKTrack> track, NSUInteger index, BOOL *stop) {
+        [self removeTrack:track];
+        [self insertTrack:track afterTrack:previousTrack];
+        previousTrack = track;
+    }];
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+        handler(nil);
+    });
+}
+
+- (void)addTracks:(NSArray*)tracks atIndex:(NSUInteger)index completionHandler:(void(^)(NSError *error))handler {
+    if (index >= [self.items count]) {
+        dispatch_async(dispatch_get_main_queue(), ^(void) {
+            handler([NSError SMK_errorWithCode:SMKQueuePlayerErrorOutOfIndex
+                                   description:[NSString stringWithFormat:@"Index %d is out of queue (count: %d)", index, [self.items count]]]);
+        });
+        return;
+    }
+    
+    __block id<SMKTrack> previousTrack = [[self.items objectAtIndex:index] track];
+    [tracks enumerateObjectsUsingBlock:^(id<SMKTrack> track, NSUInteger index, BOOL *stop) {
+        [self insertTrack:track afterTrack:previousTrack];
+        previousTrack = track;
+    }];
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+        handler(nil);
+    });
+}
+
+- (void)removeTracksAtIndexes:(NSIndexSet *)indexes completionHandler:(void(^)(NSError *error))handler {
+    __block NSError *error = nil;
+    __block NSMutableArray *tracksToRemove = [NSMutableArray arrayWithCapacity:[indexes count]];
+    [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
+        if (index < [self.items count]) {
+            [tracksToRemove addObject:[[self.items objectAtIndex:index] track]];
+        } else {
+            error = [NSError SMK_errorWithCode:SMKQueuePlayerErrorOutOfIndex
+                                   description:[NSString stringWithFormat:@"Index %d is out of queue (count: %d)", index, [self.items count]]];
+            tracksToRemove = nil;
+            *stop = YES;
+        }
+    }];
+    [tracksToRemove enumerateObjectsUsingBlock:^(id<SMKTrack> track, NSUInteger index, BOOL *stop) {
+        [self removeTrack:track];
+    }];
+    dispatch_async(dispatch_get_main_queue(), ^(void) {
+        handler(error);
+    });
+}
+
 #pragma mark - Private
 
 - (NSArray *)_queueItemsForTracks:(NSArray *)tracks
@@ -256,6 +383,13 @@
         [items addObject:item];
     }];
     return items;
+}
+
+- (SMKQueueItem *)_queueItemForTrack:(id<SMKTrack>)track
+{
+    SMKQueueItem *item = [SMKQueueItem new];
+    item.track = track;
+    return item;
 }
 
 - (NSUInteger)_indexOfTrack:(id<SMKTrack>)track

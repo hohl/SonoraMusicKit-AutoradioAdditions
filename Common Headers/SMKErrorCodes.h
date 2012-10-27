@@ -13,3 +13,5 @@ extern NSInteger const SMKPlayerErrorItemAlreadyExists;
 
 extern NSInteger const SMKCoreDataErrorDataStoreNotAFolder;
 extern NSInteger const SMKCoreDataErrorFailedToInitializeStore;
+
+extern NSInteger const SMKQueuePlayerErrorOutOfIndex;
