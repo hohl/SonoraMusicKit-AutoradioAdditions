@@ -225,6 +225,7 @@
 		03FBED6815E7101300A67DEE /* SNRMusicKitMac.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0369921715E3EB0B003BCCBE /* SNRMusicKitMac.framework */; };
 		03FBED6A15E7101F00A67DEE /* SNRMusicKitMac.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0369921715E3EB0B003BCCBE /* SNRMusicKitMac.framework */; };
 		03FBED6D15E710B300A67DEE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FBED6B15E710B300A67DEE /* MainMenu.xib */; };
+		5F4F336D163D3A8000573381 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4F336C163D3A8000573381 /* CoreServices.framework */; };
 		5F644788162D84880032FE23 /* AFHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F644775162D84880032FE23 /* AFHTTPClient.h */; };
 		5F644789162D84880032FE23 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F644776162D84880032FE23 /* AFHTTPClient.m */; };
 		5F64478A162D84880032FE23 /* AFHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F644777162D84880032FE23 /* AFHTTPRequestOperation.h */; };
@@ -675,6 +676,7 @@
 		03FBED6115E70FFA00A67DEE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = "Example Apps/8tracksExample/en.lproj/Credits.rtf"; sourceTree = SOURCE_ROOT; };
 		03FBED6315E70FFA00A67DEE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "Example Apps/8tracksExample/en.lproj/InfoPlist.strings"; sourceTree = SOURCE_ROOT; };
 		03FBED6C15E710B300A67DEE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "Example Apps/8tracksExample/en.lproj/MainMenu.xib"; sourceTree = SOURCE_ROOT; };
+		5F4F336C163D3A8000573381 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		5F644775162D84880032FE23 /* AFHTTPClient.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = AFHTTPClient.h; path = External/AFNetworking/AFNetworking/AFHTTPClient.h; sourceTree = "<group>"; };
 		5F644776162D84880032FE23 /* AFHTTPClient.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = AFHTTPClient.m; path = External/AFNetworking/AFNetworking/AFHTTPClient.m; sourceTree = "<group>"; };
 		5F644777162D84880032FE23 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = AFHTTPRequestOperation.h; path = External/AFNetworking/AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -735,6 +737,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F4F336D163D3A8000573381 /* CoreServices.framework in Frameworks */,
 				03DEF89B15EB3159001A1537 /* Security.framework in Frameworks */,
 				03DEF89415EB2796001A1537 /* libcommonCrypto.dylib in Frameworks */,
 				03FBECCB15E700AB00A67DEE /* CocoaLibSpotify.framework in Frameworks */,
@@ -859,6 +862,7 @@
 		036991E315E3EAE1003BCCBE = {
 			isa = PBXGroup;
 			children = (
+				5F4F336C163D3A8000573381 /* CoreServices.framework */,
 				0371CF9815EDECD900B304CC /* Master API */,
 				03927DFB15E69EBD00E6483E /* Example Apps */,
 				03F795C315E47AB900C9F652 /* Categories */,
