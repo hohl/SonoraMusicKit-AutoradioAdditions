@@ -137,4 +137,38 @@
     });
 }
 
+- (void)fetchTracksWithSortDescriptors:(NSArray *)sortDescriptors
+                             predicate:(SMKMPMediaPredicate *)predicate
+                     completionHandler:(void(^)(NSArray *tracks, NSArray *sections, NSError *error))handler
+{
+    __weak SMKMPMediaContentSource *weakSelf = self;
+    dispatch_async(self.queryQueue, ^{
+        SMKMPMediaContentSource *strongSelf = weakSelf;
+        MPMediaQuery *songsQuery = [MPMediaQuery songsQuery];
+        if (predicate) songsQuery.filterPredicates = predicate.predicates;
+        NSArray *collections = songsQuery.items;
+        NSMutableArray *tracks = [NSMutableArray arrayWithCapacity:[collections count]];
+        [collections enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+            SMKMPMediaTrack *track = [[SMKMPMediaTrack alloc] initWithRepresentedObject:obj contentSource:strongSelf];
+            [tracks addObject:track];
+        }];
+        NSMutableArray *songSections = nil;
+        if ([sortDescriptors count]) {
+            [tracks sortUsingDescriptors:sortDescriptors];
+        }
+        else
+        {
+            NSArray *collectionSections = songsQuery.itemSections;
+            songSections = [NSMutableArray arrayWithCapacity:[collectionSections count]];
+            [collectionSections enumerateObjectsUsingBlock:^(MPMediaQuerySection *obj, NSUInteger idx, BOOL *stop) {
+                SMKSection *section = [[SMKSection alloc] initWithTitle:obj.title range:obj.range];
+                [songSections addObject:section];
+            }];
+        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (handler) handler(tracks, songSections, nil);
+        });
+    });
+}
+
 @end
