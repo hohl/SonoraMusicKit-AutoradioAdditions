@@ -333,7 +333,7 @@
 }
 
 - (void)addTracks:(NSArray*)tracks atIndex:(NSUInteger)index completionHandler:(void(^)(NSError *error))handler {
-    if (index >= [self.items count]) {
+    if (index > [self.items count]) {
         dispatch_async(dispatch_get_main_queue(), ^(void) {
             handler([NSError SMK_errorWithCode:SMKQueuePlayerErrorOutOfIndex
                                    description:[NSString stringWithFormat:@"Index %d is out of queue (count: %d)", index, [self.items count]]]);
@@ -341,7 +341,7 @@
         return;
     }
     
-    __block id<SMKTrack> previousTrack = [[self.items objectAtIndex:index] track];
+    __block id<SMKTrack> previousTrack = index > 0 ? [[self.items objectAtIndex:(index - 1)] track] : nil;
     [tracks enumerateObjectsUsingBlock:^(id<SMKTrack> track, NSUInteger index, BOOL *stop) {
         [self insertTrack:track afterTrack:previousTrack];
         previousTrack = track;

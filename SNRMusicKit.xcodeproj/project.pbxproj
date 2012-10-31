@@ -862,7 +862,6 @@
 		036991E315E3EAE1003BCCBE = {
 			isa = PBXGroup;
 			children = (
-				5F4F336C163D3A8000573381 /* CoreServices.framework */,
 				0371CF9815EDECD900B304CC /* Master API */,
 				03927DFB15E69EBD00E6483E /* Example Apps */,
 				03F795C315E47AB900C9F652 /* Categories */,
@@ -900,6 +899,7 @@
 			children = (
 				036991F215E3EAE1003BCCBE /* Cocoa.framework */,
 				0369923A15E3EB44003BCCBE /* Foundation.framework */,
+				5F4F336C163D3A8000573381 /* CoreServices.framework */,
 				5F6447C7162D8B6F0032FE23 /* SystemConfiguration.framework */,
 				5F6447C5162D8B670032FE23 /* MobileCoreServices.framework */,
 				5F6447C3162D8AC70032FE23 /* CFNetwork.framework */,
