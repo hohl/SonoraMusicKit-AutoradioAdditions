@@ -1,6 +1,6 @@
 ## Sonora Music Kit
 
-This fork is a customized version of SNRMusicKit used by [Autoradio Music Player](http://www.michaelhohl.net/autoradio/). For a short intro read the README.md of the official repository by [indragiek](https://github.com/indragiek).
+This fork is a customized version of SNRMusicKit used by [Autoradio Music Player](http://www.michaelhohl.net/autoradio/). For a short intro read the README.md of the [master repository](https://github.com/indragiek/SNRMusicKit) by [indragiek](https://github.com/indragiek).
 
 ### License
 
