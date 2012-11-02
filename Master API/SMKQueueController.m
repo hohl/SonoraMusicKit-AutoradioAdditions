@@ -481,7 +481,7 @@
     NSUInteger indexInOrderedArray = [orderedTrackIndexes indexOfObject:[NSNumber numberWithUnsignedInteger:self.indexOfCurrentTrack]];
     NSUInteger nextIndexInOrderedArray = indexInOrderedArray + 1;
     if (self.repeatMode == SMKQueueControllerRepeatModeAll && nextIndexInOrderedArray >= [orderedTrackIndexes count]) {
-        nextIndexInOrderedArray = (nextIndexInOrderedArray % [orderedTrackIndexes count]);
+        nextIndexInOrderedArray = nextIndexInOrderedArray % [orderedTrackIndexes count];
     }
     if (nextIndexInOrderedArray < [orderedTrackIndexes count]) {
         return [[orderedTrackIndexes objectAtIndex:nextIndexInOrderedArray] unsignedIntegerValue];
@@ -502,7 +502,6 @@
     } else {
         return NSNotFound;
     }
-    
 }
 @end
 
