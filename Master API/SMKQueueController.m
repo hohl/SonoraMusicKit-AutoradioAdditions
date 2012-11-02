@@ -72,7 +72,10 @@
     NSUInteger index = [self _indexOfTrack:track];
     if (index == NSNotFound)
         return;
-    if ([track isEqual:self.currentTrack]) {
+    if ([self.items count] == 1) {
+        [self pause:nil];
+        self.currentPlayer = nil;
+    } else if ([track isEqual:self.currentTrack]) {
         [self next:nil];
     }
     [self removeObjectFromItemsAtIndex:index];
