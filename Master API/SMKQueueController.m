@@ -160,7 +160,8 @@
 - (IBAction)play:(id)sender
 {
     if (!self.currentPlayer && [self.items count]) {
-        [self _beginPlayingItemAtIndex:0];
+        NSUInteger indexToStartWith = [[[self _arrayOfOrderedTrackIndexes] objectAtIndex:0] unsignedIntegerValue];
+        [self _beginPlayingItemAtIndex:indexToStartWith];
     }
     [self.currentPlayer play];
 }
@@ -479,8 +480,8 @@
     NSArray *orderedTrackIndexes = [self _arrayOfOrderedTrackIndexes];
     NSUInteger indexInOrderedArray = [orderedTrackIndexes indexOfObject:[NSNumber numberWithUnsignedInteger:self.indexOfCurrentTrack]];
     NSUInteger nextIndexInOrderedArray = indexInOrderedArray + 1;
-    if (self.repeatMode == SMKQueueControllerRepeatModeAll) {
-        while (nextIndexInOrderedArray >= [orderedTrackIndexes count]) nextIndexInOrderedArray -= [orderedTrackIndexes count];
+    if (self.repeatMode == SMKQueueControllerRepeatModeAll && nextIndexInOrderedArray >= [orderedTrackIndexes count]) {
+        nextIndexInOrderedArray = (nextIndexInOrderedArray % [orderedTrackIndexes count]);
     }
     if (nextIndexInOrderedArray < [orderedTrackIndexes count]) {
         return [[orderedTrackIndexes objectAtIndex:nextIndexInOrderedArray] unsignedIntegerValue];
