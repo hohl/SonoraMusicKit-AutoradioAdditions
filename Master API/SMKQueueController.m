@@ -10,6 +10,7 @@
 #import "SMKErrorCodes.h"
 #import "NSError+SMKAdditions.h"
 #import "NSMutableArray+SMKAdditions.h"
+#import "NSArray+SMKAdditions.h"
 
 @interface SMKQueueItem : NSObject
 @property (nonatomic, retain) id<SMKTrack> track;
@@ -454,17 +455,7 @@
             return _shuffledTrackIndexes;
         }
         _continualTrackIndexes = [NSMutableArray SMK_arrayWithNumbersCountingTo:tracksCount];
-        _shuffledTrackIndexes = [_continualTrackIndexes sortedArrayUsingComparator:^NSComparisonResult(id obj1, id obj2) {
-            // we abuse the sorter by just returning random values, this shuffles the ordered list
-            switch (arc4random_uniform(3)) {
-                case 0:
-                    return NSOrderedAscending;
-                case 1:
-                    return NSOrderedDescending;
-                default:
-                    return NSOrderedSame;
-            }
-        }];
+        _shuffledTrackIndexes = [_continualTrackIndexes SMK_shuffledArray];
         return _shuffledTrackIndexes;
     } else {
         if (tracksCount == [_continualTrackIndexes count]) {
