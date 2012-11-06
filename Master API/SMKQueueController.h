@@ -30,16 +30,12 @@ static const NSString *SMKQueueTransitToPreviousTrackNotification = @"SMKQueueCo
 - (id)initWithTracks:(NSArray *)tracks;
 + (instancetype)queueControllerWithTracks:(NSArray *)tracks;
 
-- (void)insertTrack:(id<SMKTrack>)newTrack afterTrack:(id<SMKTrack>)track;
 - (void)removeAllTracks;
-- (void)removeTrack:(id<SMKTrack>)track;
 
 #pragma mark - Player
 
 @property (nonatomic, strong, readonly) id<SMKPlayer> currentPlayer;
 @property (nonatomic, strong, readonly) id<SMKTrack> currentTrack;
-@property (nonatomic, strong, readonly) id<SMKTrack> nextTrack;
-@property (nonatomic, strong, readonly) id<SMKTrack> previousTrack;
 @property (nonatomic, assign, readonly) NSUInteger indexOfCurrentTrack;
 @property (nonatomic, assign, readonly) BOOL playing;
 @property (nonatomic, assign) BOOL shuffle;
@@ -59,4 +55,11 @@ static const NSString *SMKQueueTransitToPreviousTrackNotification = @"SMKQueueCo
 
 @property (nonatomic, assign, readonly) NSTimeInterval playbackTime;
 - (void)seekToPlaybackTime:(NSTimeInterval)playbackTime;
+@end
+
+// Autoradio Music Player needs to retrieve the next and previous tracks used by the queue controller.
+// This additions makes it easy for Autoradio app to retrieve them.
+@interface SMKQueueController (AutoradioAdditions)
+@property (nonatomic, strong, readonly) id<SMKTrack> nextTrack;
+@property (nonatomic, strong, readonly) id<SMKTrack> previousTrack;
 @end

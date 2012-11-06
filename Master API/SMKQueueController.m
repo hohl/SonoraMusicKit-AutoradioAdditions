@@ -50,17 +50,6 @@
 
 #pragma mark - Queue
 
-- (void)insertTrack:(id<SMKTrack>)newTrack afterTrack:(id<SMKTrack>)track
-{
-    if (!track) {
-        [self.items addObjectsFromArray:[self _queueItemsForTracks:@[newTrack]]];
-    } else {
-        NSUInteger index = [self _indexOfTrack:track];
-        if (index != NSNotFound)
-            [self insertObject:[self _queueItemForTrack:newTrack] inItemsAtIndex:index+1];
-    }
-}
-
 - (void)removeAllTracks
 {
     [self pause:nil];
@@ -68,19 +57,6 @@
     self.currentPlayer = nil;
 }
 
-- (void)removeTrack:(id<SMKTrack>)track
-{
-    NSUInteger index = [self _indexOfTrack:track];
-    if (index == NSNotFound)
-        return;
-    if ([self.items count] == 1) {
-        [self pause:nil];
-        self.currentPlayer = nil;
-    } else if ([track isEqual:self.currentTrack]) {
-        [self next:nil];
-    }
-    [self removeObjectFromItemsAtIndex:index];
-}
 
 #pragma mark - Accessors
 
@@ -222,36 +198,6 @@
     [self.currentPlayer seekBackward];
 }
 
-#pragma mark - Additions for Autoradio Music Player
-
-- (id<SMKTrack>)nextTrack
-{
-    NSUInteger nextTrackIndex = [self _indexOfNextTrack];
-    if (nextTrackIndex == NSNotFound) {
-        return nil;
-    }
-    return [self.tracks objectAtIndex:nextTrackIndex];
-}
-
-- (id<SMKTrack>)previousTrack
-{
-    NSUInteger previousTrackIndex = [self _indexOfPreviousTrack];
-    if (previousTrackIndex == NSNotFound) {
-        return nil;
-    }
-    return [self.tracks objectAtIndex:previousTrackIndex];
-}
-
-+ (NSSet *)keyPathsForValuesAffectingPreviousTrack
-{
-    return [NSSet setWithArray:@[@"currentPlayer.currentTrack", @"shuffle", @"repeatMode"]];
-}
-
-+ (NSSet *)keyPathsForValuesAffectingNextTrack
-{
-    return [NSSet setWithArray:@[@"currentPlayer.currentTrack", @"shuffle", @"repeatMode"]];
-}
-
 #pragma mark - SMKPlaylist
 
 + (NSSet *)supportedSortKeys
@@ -296,7 +242,12 @@
     return NSLocalizedString(@"current playback queue", @"extended description of the queue playlist");
 }
 
-- (void)moveTracksAtIndexes:(NSIndexSet*)indexes toIndex:(NSUInteger)index completionHandler:(void(^)(NSError *error))handler {
+- (void)moveTracksAtIndexes:(NSIndexSet*)indexes toIndex:(NSUInteger)toIndex completionHandler:(void(^)(NSError *error))handler
+{
+    if (toIndex > [self.items count]) {
+        toIndex = [self.items count];
+    }
+    
     __block NSError *error = nil;
     NSMutableArray *tracks = [NSMutableArray arrayWithCapacity:[indexes count]];
     [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
@@ -312,24 +263,21 @@
         if (error) {
             handler(error);
         } else {
-            [self moveTracks:tracks toIndex:index completionHandler:handler];
+            [self moveTracks:tracks toIndex:toIndex completionHandler:handler];
         }
     });
 }
 
-- (void)moveTracks:(NSArray*)tracks toIndex:(NSUInteger)index completionHandler:(void(^)(NSError *error))handler {
-    if (index >= [self.items count]) {
-        dispatch_async(dispatch_get_main_queue(), ^(void) {
-            handler([NSError SMK_errorWithCode:SMKQueuePlayerErrorOutOfIndex
-                                   description:[NSString stringWithFormat:@"Index %d is out of queue (count: %d)", index, [self.items count]]]);
-        });
-        return;
+- (void)moveTracks:(NSArray*)tracks toIndex:(NSUInteger)toIndex completionHandler:(void(^)(NSError *error))handler
+{
+    if (toIndex > [self.items count]) {
+        toIndex = [self.items count];
     }
     
-    __block id<SMKTrack> previousTrack = [[self.items objectAtIndex:index] track];
+    __block id<SMKTrack> previousTrack = [[self.items objectAtIndex:toIndex] track];
     [tracks enumerateObjectsUsingBlock:^(id<SMKTrack> track, NSUInteger index, BOOL *stop) {
-        [self removeTrack:track];
-        [self insertTrack:track afterTrack:previousTrack];
+        [self _removeTrack:track];
+        [self _insertTrack:track afterTrack:previousTrack];
         previousTrack = track;
     }];
     dispatch_async(dispatch_get_main_queue(), ^(void) {
@@ -337,18 +285,15 @@
     });
 }
 
-- (void)addTracks:(NSArray*)tracks atIndex:(NSUInteger)index completionHandler:(void(^)(NSError *error))handler {
+- (void)addTracks:(NSArray*)tracks atIndex:(NSUInteger)index completionHandler:(void(^)(NSError *error))handler
+{
     if (index > [self.items count]) {
-        dispatch_async(dispatch_get_main_queue(), ^(void) {
-            handler([NSError SMK_errorWithCode:SMKQueuePlayerErrorOutOfIndex
-                                   description:[NSString stringWithFormat:@"Index %d is out of queue (count: %d)", index, [self.items count]]]);
-        });
-        return;
+        index = [self.items count];
     }
     
     __block id<SMKTrack> previousTrack = index > 0 ? [[self.items objectAtIndex:(index - 1)] track] : nil;
     [tracks enumerateObjectsUsingBlock:^(id<SMKTrack> track, NSUInteger index, BOOL *stop) {
-        [self insertTrack:track afterTrack:previousTrack];
+        [self _insertTrack:track afterTrack:previousTrack];
         previousTrack = track;
     }];
     dispatch_async(dispatch_get_main_queue(), ^(void) {
@@ -356,7 +301,8 @@
     });
 }
 
-- (void)removeTracksAtIndexes:(NSIndexSet *)indexes completionHandler:(void(^)(NSError *error))handler {
+- (void)removeTracksAtIndexes:(NSIndexSet *)indexes completionHandler:(void(^)(NSError *error))handler
+{
     __block NSError *error = nil;
     __block NSMutableArray *tracksToRemove = [NSMutableArray arrayWithCapacity:[indexes count]];
     [indexes enumerateIndexesUsingBlock:^(NSUInteger index, BOOL *stop) {
@@ -370,7 +316,7 @@
         }
     }];
     [tracksToRemove enumerateObjectsUsingBlock:^(id<SMKTrack> track, NSUInteger index, BOOL *stop) {
-        [self removeTrack:track];
+        [self _removeTrack:track];
     }];
     dispatch_async(dispatch_get_main_queue(), ^(void) {
         handler(error);
@@ -378,6 +324,31 @@
 }
 
 #pragma mark - Private
+
+- (void)_insertTrack:(id<SMKTrack>)newTrack afterTrack:(id<SMKTrack>)track
+{
+    if (!track) {
+        [self.items addObjectsFromArray:[self _queueItemsForTracks:@[newTrack]]];
+    } else {
+        NSUInteger index = [self _indexOfTrack:track];
+        if (index != NSNotFound)
+            [self insertObject:[self _queueItemForTrack:newTrack] inItemsAtIndex:index+1];
+    }
+}
+
+- (void)_removeTrack:(id<SMKTrack>)track
+{
+    NSUInteger index = [self _indexOfTrack:track];
+    if (index == NSNotFound)
+        return;
+    if ([self.items count] == 1) {
+        [self pause:nil];
+        self.currentPlayer = nil;
+    } else if ([track isEqual:self.currentTrack]) {
+        [self next:nil];
+    }
+    [self removeObjectFromItemsAtIndex:index];
+}
 
 - (NSArray *)_queueItemsForTracks:(NSArray *)tracks
 {
@@ -488,11 +459,41 @@
     if ((self.repeatMode == SMKQueueControllerRepeatModeAll) && indexInOrderedArray == 0) {
         indexInOrderedArray = [orderedTrackIndexes count];
     }
-    if (indexInOrderedArray > 0) {
+    if (indexInOrderedArray > 0 && indexInOrderedArray != NSNotFound) {
         return [[orderedTrackIndexes objectAtIndex:(indexInOrderedArray - 1)] unsignedIntegerValue];
     } else {
         return NSNotFound;
     }
+}
+@end
+
+@implementation SMKQueueController (AutoradioAdditions)
+- (id<SMKTrack>)nextTrack
+{
+    NSUInteger nextTrackIndex = [self _indexOfNextTrack];
+    if (nextTrackIndex == NSNotFound) {
+        return nil;
+    }
+    return [self.tracks objectAtIndex:nextTrackIndex];
+}
+
+- (id<SMKTrack>)previousTrack
+{
+    NSUInteger previousTrackIndex = [self _indexOfPreviousTrack];
+    if (previousTrackIndex == NSNotFound) {
+        return nil;
+    }
+    return [self.tracks objectAtIndex:previousTrackIndex];
+}
+
++ (NSSet *)keyPathsForValuesAffectingPreviousTrack
+{
+    return [NSSet setWithArray:@[@"currentPlayer.currentTrack", @"shuffle", @"repeatMode"]];
+}
+
++ (NSSet *)keyPathsForValuesAffectingNextTrack
+{
+    return [NSSet setWithArray:@[@"currentPlayer.currentTrack", @"shuffle", @"repeatMode"]];
 }
 @end
 

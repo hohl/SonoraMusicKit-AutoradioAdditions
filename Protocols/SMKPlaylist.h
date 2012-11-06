@@ -13,6 +13,8 @@
 
 #import "SMKContentObject.h"
 
+#define SMKPlaylistLastIndex NSUIntegerMax
+
 @protocol SMKPlaylist <NSObject, SMKContentObject>
 @required
 
@@ -44,22 +46,22 @@
 
 /**
  @param indexes The original indexes of the items to move.
- @param index The index to move the items to.
+ @param index The index to move the items to. If the index is out of the range of the list of tracks it will be added after the last item.
  @param handler A handler block to be called when the operation completes
  */
 - (void)moveTracksAtIndexes:(NSIndexSet*)indexes toIndex:(NSUInteger)index completionHandler:(void(^)(NSError *error))handler;
 
 /**
  @param tracks The tracks to move
- @param index The index to move the tracks to.
+ @param index The index to move the tracks to. If the index is out of the range of the list of tracks it will be added after the last item.
  @param handler A handler block to be called when the operation completes
  */
 - (void)moveTracks:(NSArray*)tracks toIndex:(NSUInteger)index completionHandler:(void(^)(NSError *error))handler;
 
 /**
  @param track The tracks to add to the playlist.
- @param index The index to add the tracks to.
- @param handler A handler block to be called when the operation completes
+ @param index The index to add the tracks to. If the index is out of the range of the list of tracks it will be added after the last item.
+ @param handler A handler block to be called when the operation completes.
  */
 - (void)addTracks:(NSArray*)tracks atIndex:(NSUInteger)index completionHandler:(void(^)(NSError *error))handler;
 
