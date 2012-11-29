@@ -76,6 +76,7 @@
     dispatch_async(self.queryQueue, ^{
         SMKMPMediaContentSource *strongSelf = weakSelf;
         MPMediaQuery *artistsQuery = [MPMediaQuery artistsQuery];
+        artistsQuery.groupingType = MPMediaGroupingAlbumArtist;
         if (predicate) artistsQuery.filterPredicates = predicate.predicates;
         NSArray *collections = artistsQuery.collections;
         NSMutableArray *artists = [NSMutableArray arrayWithCapacity:[collections count]];
