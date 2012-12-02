@@ -495,6 +495,38 @@
 {
     return [NSSet setWithArray:@[@"currentPlayer.currentTrack", @"shuffle", @"repeatMode"]];
 }
+
+- (BOOL)isTrackInQueue:(id<SMKTrack>)trackToLookup
+{
+    __block BOOL isTracksInQueue = NO;
+    [self.items enumerateObjectsUsingBlock:^(SMKQueueItem *item, NSUInteger index, BOOL *stop) {
+        id<SMKTrack> track = item.track;
+        if ([track.name isEqualToString:trackToLookup.name] &&
+            [track.artistName isEqualToString:trackToLookup.artistName] &&
+            [track.album.name isEqualToString:trackToLookup.album.name])
+        {
+            isTracksInQueue = YES;
+            *stop = YES;
+        }
+    }];
+    return isTracksInQueue;
+}
+
+- (void)removeTrack:(id<SMKTrack>)trackToLookup
+{
+    __block NSMutableIndexSet *indexesToRemoves = [NSMutableIndexSet indexSet];
+    [self.items enumerateObjectsUsingBlock:^(SMKQueueItem *item, NSUInteger index, BOOL *stop) {
+        id<SMKTrack> track = item.track;
+        if ([track.name isEqualToString:trackToLookup.name] &&
+            [track.artistName isEqualToString:trackToLookup.artistName] &&
+            [track.album.name isEqualToString:trackToLookup.album.name])
+        {
+            [indexesToRemoves addIndex:index];
+        }
+    }];
+    [self removeTracksAtIndexes:indexesToRemoves completionHandler:^(NSError *e) {}];
+}
+
 @end
 
 @implementation SMKQueueItem

@@ -62,4 +62,6 @@ static const NSString *SMKQueueTransitToPreviousTrackNotification = @"SMKQueueCo
 @interface SMKQueueController (AutoradioAdditions)
 @property (nonatomic, strong, readonly) id<SMKTrack> nextTrack;
 @property (nonatomic, strong, readonly) id<SMKTrack> previousTrack;
+- (BOOL)isTrackInQueue:(id<SMKTrack>)track;
+- (void)removeTrack:(id<SMKTrack>)track;
 @end
