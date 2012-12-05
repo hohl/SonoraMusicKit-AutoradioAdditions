@@ -22,6 +22,11 @@
 @property (nonatomic, copy, readonly) NSString *username;
 
 /**
+ The language to return user visible information, expressed as an ISO 639 alpha-2 code.
+ */
+@property (nonatomic, copy) NSString *languageCode;
+
+/**
  Returns the shared instance ot SMKLastFMKClient
  */
 + (instancetype)sharedInstance;

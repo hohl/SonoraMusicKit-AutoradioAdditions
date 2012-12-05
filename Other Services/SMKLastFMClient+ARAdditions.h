@@ -26,5 +26,13 @@ static const SMKChartType SMKChartTopTracks = @"chart.getTopTracks";
                 limit:(NSUInteger)limit
     completionHandler:(void (^)(NSDictionary *response, NSError *error))handler;
 
+/**
+ Retrieves an info for the artist of the passed name.
+ @param artistName the name of the artist to retrieve
+ @param handler a completion handler block
+ */
+- (void)retrieveInfoForArtist:(NSString *)artistName
+            completionHandler:(void (^)(NSDictionary *response, NSError *error))handler;
+
 
 @end
