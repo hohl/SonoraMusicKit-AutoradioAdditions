@@ -17,7 +17,6 @@
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"method"] = chartType;
     parameters[@"lang"] = @(limit);
-    parameters[@"api_key"] = self.APIKey;
     [self getPath:nil parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (handler) handler(responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -31,7 +30,6 @@
     parameters[@"method"] = @"artist.getInfo";
     parameters[@"artist"] = artistName;
     parameters[@"limit"] = self.languageCode;
-    parameters[@"api_key"] = self.APIKey;
     [self getPath:nil parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
         if (handler) handler(responseObject, nil);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
