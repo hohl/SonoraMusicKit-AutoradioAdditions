@@ -52,6 +52,11 @@
     return NSClassFromString(@"SMKSpotifyPlayer");
 }
 
+- (BOOL)isPlayable
+{
+    return YES;
+}
+
 #pragma mark - SMKWebObject
 
 - (NSURL *)webURL

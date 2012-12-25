@@ -384,7 +384,7 @@
 {
     id<SMKTrack> track = [[self.items objectAtIndex:index] track];
     id<SMKPlayer> player = [[track playerClass] new];
-    NSLog(@"now playing %@ with %@", [track name], player);
+    NSLog(@"loading %@ (%@)", [track name], player);
     self.currentPlayer = player;
     __weak SMKQueueController *weakSelf = self;
     [player playTrack:track completionHandler:^(NSError *error) {
@@ -396,6 +396,7 @@
             if (index < [strongSelf countOfItems])
                 [strongSelf _beginPlayingItemAtIndex:index];
         } else {
+            NSLog(@"now playing %@ with %@", [track name], player);
             [strongSelf _recalculateIndexOfCurrentTrack];
         }
     }];

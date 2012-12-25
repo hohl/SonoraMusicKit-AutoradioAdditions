@@ -130,6 +130,11 @@
     return [self.representedObject valueForProperty:MPMediaItemPropertyAssetURL];
 }
 
+- (BOOL)isPlayable
+{
+    return [self.representedObject valueForProperty:MPMediaItemPropertyAssetURL] != nil;
+}
+
 #pragma mark - SMKArtworkObject
 
 - (void)fetchArtworkWithSize:(SMKArtworkSize)size

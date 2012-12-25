@@ -41,6 +41,11 @@
 - (NSTimeInterval)duration;
 
 /**
+ @return Whether the track can be played.
+ */
+- (BOOL)isPlayable;
+
+/**
  @return The player class used to play this track
  */
 - (Class)playerClass;

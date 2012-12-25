@@ -71,7 +71,23 @@
         MPMediaItemCollection *collection = [MPMediaItemCollection collectionWithItems:@[mediaItem]];
         [self.audioPlayer setQueueWithItemCollection:collection];
         [self.audioPlayer play];
-        if (handler) { handler(nil); }
+        if (handler) {
+            /*
+             The following lines are a hack to workarround the missing iCloud libraries. It checks after 0.05 seconds
+             if the item was successfully played. Otherwise there may be problems with loading the track.
+             */
+            int64_t delayInSeconds = 0.1;
+            dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+            dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
+                CGFloat playbackTime = self.playbackTime;
+                if (!isnan(playbackTime)) {
+                    handler(nil);
+                } else {
+                    NSError *error = [NSError SMK_errorWithCode:SMKPlayerErrorFailedPlayItem description:@"After 0.15 seconds MPMusicPlayer still not started playing. Recommended to abort and skip track."];
+                    handler(error);
+                }
+            });
+        }
     } else if (handler) {
         NSError *error = [NSError SMK_errorWithCode:SMKPlayerErrorFailedToEnqueueTrack description:@"MPMusicPlayerController failed to play the track because the object was of the wrong type. Expected SMKMPMediaTrack"];
         handler(error);
