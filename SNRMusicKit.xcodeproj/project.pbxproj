@@ -36,21 +36,15 @@
 		030CE8D315E5C31F00AC12BE /* NSString+SMKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 030CE8D115E5C31F00AC12BE /* NSString+SMKAdditions.m */; };
 		030CE8D415E5C31F00AC12BE /* NSString+SMKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 030CE8D115E5C31F00AC12BE /* NSString+SMKAdditions.m */; };
 		030CE8D615E5CE0000AC12BE /* SMKConvenience.h in Headers */ = {isa = PBXBuildFile; fileRef = 030CE8D515E5CE0000AC12BE /* SMKConvenience.h */; };
-		03157B2A15EBE37D0048DB65 /* libCocoaLibSpotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03FBECD715E700C300A67DEE /* libCocoaLibSpotify.a */; };
 		03157B3215EBE3AC0048DB65 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03157B3115EBE3AC0048DB65 /* UIKit.framework */; };
 		03157B3315EBE3AC0048DB65 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0369923A15E3EB44003BCCBE /* Foundation.framework */; };
 		03157B3515EBE3AC0048DB65 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03157B3415EBE3AC0048DB65 /* CoreGraphics.framework */; };
 		03157B5415EBE3CB0048DB65 /* libSonoraMusicKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0369923915E3EB44003BCCBE /* libSonoraMusicKit.a */; };
 		03157B5515EBE3E00048DB65 /* SPLoginResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 03157B1315EBE35C0048DB65 /* SPLoginResources.bundle */; };
-		03157B5715EBE42A0048DB65 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03157B5615EBE42A0048DB65 /* UIKit.framework */; };
-		032BAE7915EBF361003E3135 /* SPUser+SMKUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB017415E859FB001F3A02 /* SPUser+SMKUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		032BAE7A15EBF361003E3135 /* SPPlaylist+SMKPlaylist.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB017E15E85C3E001F3A02 /* SPPlaylist+SMKPlaylist.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		032BAE7B15EBF361003E3135 /* SPTrack+SMKTrack.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB019415E87A4A001F3A02 /* SPTrack+SMKTrack.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		032BAE7C15EBF361003E3135 /* SPAlbum+SMKAlbum.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB019915E88745001F3A02 /* SPAlbum+SMKAlbum.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		032BAE7D15EBF361003E3135 /* SPArtist+SMKArtist.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB019E15E88F17001F3A02 /* SPArtist+SMKArtist.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		032BAE7E15EBF361003E3135 /* SPToplist+SMKPlaylist.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DEF86B15EA9F7F001A1537 /* SPToplist+SMKPlaylist.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		032BAE7F15EBF366003E3135 /* SMKSpotifyConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB018F15E87676001F3A02 /* SMKSpotifyConstants.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		032BAE8015EBF36C003E3135 /* SMKSpotifyContentSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB016E15E856FB001F3A02 /* SMKSpotifyContentSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		032BAE8115EBF8EC003E3135 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EB016715E83F60001F3A02 /* MediaPlayer.framework */; };
 		032BAE8E15EBFEC8003E3135 /* SMKMPMediaPredicate.m in Sources */ = {isa = PBXBuildFile; fileRef = 032BAE8D15EBFEC8003E3135 /* SMKMPMediaPredicate.m */; };
 		032BAE9115EC053B003E3135 /* SMKMPMediaPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 032BAE9015EC053B003E3135 /* SMKMPMediaPlaylist.m */; };
@@ -82,12 +76,10 @@
 		0369922215E3EB0B003BCCBE /* SNRMusicKitMac.m in Sources */ = {isa = PBXBuildFile; fileRef = 0369922115E3EB0B003BCCBE /* SNRMusicKitMac.m */; };
 		0369923B15E3EB44003BCCBE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0369923A15E3EB44003BCCBE /* Foundation.framework */; };
 		0369924015E3EB44003BCCBE /* SNRMusicKitiOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0369923F15E3EB44003BCCBE /* SNRMusicKitiOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0369924715E3F341003BCCBE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0369924615E3F341003BCCBE /* AVFoundation.framework */; };
 		0369924D15E3F382003BCCBE /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0369924C15E3F382003BCCBE /* AVFoundation.framework */; };
 		0369948D15E3F3C5003BCCBE /* SFBAudioEngine.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0369948115E3F3AA003BCCBE /* SFBAudioEngine.framework */; };
 		0369948F15E3F3D1003BCCBE /* SFBAudioEngine.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0369948115E3F3AA003BCCBE /* SFBAudioEngine.framework */; };
 		036994D015E3F461003BCCBE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036991F615E3EAE1003BCCBE /* CoreData.framework */; };
-		036994D215E3F475003BCCBE /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036994D115E3F475003BCCBE /* CoreData.framework */; };
 		036F857515EEC45100DF72B9 /* SMKQueueController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0371CF9915EDECF200B304CC /* SMKQueueController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		036F857615EEC54500DF72B9 /* SMKAVQueuePlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 03FBEC9D15E6E0C100A67DEE /* SMKAVQueuePlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0370109C15E5535500FEAF6F /* SMKiTunesSyncOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0370109A15E5535500FEAF6F /* SMKiTunesSyncOperation.h */; };
@@ -146,13 +138,11 @@
 		03DEF87315EAE525001A1537 /* SMKPlatformNativeImage+SMKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DEF87115EAE525001A1537 /* SMKPlatformNativeImage+SMKAdditions.h */; };
 		03DEF87415EAE525001A1537 /* SMKPlatformNativeImage+SMKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DEF87215EAE525001A1537 /* SMKPlatformNativeImage+SMKAdditions.m */; };
 		03DEF87515EAE525001A1537 /* SMKPlatformNativeImage+SMKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DEF87215EAE525001A1537 /* SMKPlatformNativeImage+SMKAdditions.m */; };
-		03DEF89215EB277F001A1537 /* libcommonCrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DEF89115EB277E001A1537 /* libcommonCrypto.dylib */; };
 		03DEF89415EB2796001A1537 /* libcommonCrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DEF89315EB2795001A1537 /* libcommonCrypto.dylib */; };
 		03DEF89715EB2B76001A1537 /* SSKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DEF89515EB2B76001A1537 /* SSKeychain.h */; };
 		03DEF89815EB2B76001A1537 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DEF89615EB2B76001A1537 /* SSKeychain.m */; };
 		03DEF89915EB2B76001A1537 /* SSKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DEF89615EB2B76001A1537 /* SSKeychain.m */; };
 		03DEF89B15EB3159001A1537 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DEF89A15EB3159001A1537 /* Security.framework */; };
-		03DEF89D15EB3174001A1537 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03DEF89C15EB3173001A1537 /* Security.framework */; };
 		03E22DAA15E4A87B008351DD /* SMKContentObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E22DA915E4A87B008351DD /* SMKContentObject.h */; };
 		03E22DAC15E4A9C1008351DD /* SMKArtworkObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E22DAB15E4A9C1008351DD /* SMKArtworkObject.h */; };
 		03E22DAE15E4AA7D008351DD /* SMKWebObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E22DAD15E4AA7D008351DD /* SMKWebObject.h */; };
@@ -160,7 +150,6 @@
 		03E22DDA15E4AB92008351DD /* SMKiTunesContentSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 03E22DD815E4AB92008351DD /* SMKiTunesContentSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03E22DDB15E4AB92008351DD /* SMKiTunesContentSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E22DD915E4AB92008351DD /* SMKiTunesContentSource.m */; };
 		03EB016215E83D54001F3A02 /* SMKMPMediaContentSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 03EB016115E83D54001F3A02 /* SMKMPMediaContentSource.m */; };
-		03EB016815E83F60001F3A02 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03EB016715E83F60001F3A02 /* MediaPlayer.framework */; };
 		03EB016915E840D5001F3A02 /* SMKErrorCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F795C115E47A3C00C9F652 /* SMKErrorCodes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03EB016A15E840DB001F3A02 /* SMKMPMediaContentSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB016015E83D54001F3A02 /* SMKMPMediaContentSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03EB017015E856FB001F3A02 /* SMKSpotifyContentSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB016E15E856FB001F3A02 /* SMKSpotifyContentSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -199,7 +188,6 @@
 		03F795B515E4740900C9F652 /* SMKSFBAudioPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 03F795B315E4740900C9F652 /* SMKSFBAudioPlayer.mm */; };
 		03F795B815E4748B00C9F652 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F795B715E4748B00C9F652 /* CoreAudio.framework */; };
 		03F795BA15E4749000C9F652 /* AudioUnit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F795B915E4748F00C9F652 /* AudioUnit.framework */; };
-		03F795BE15E474A400C9F652 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03F795BD15E474A400C9F652 /* CoreAudio.framework */; };
 		03F795C215E47A3C00C9F652 /* SMKErrorCodes.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F795C115E47A3C00C9F652 /* SMKErrorCodes.h */; };
 		03F795C615E47AD300C9F652 /* NSError+SMKAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 03F795C415E47AD300C9F652 /* NSError+SMKAdditions.h */; };
 		03F795C715E47AD300C9F652 /* NSError+SMKAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 03F795C515E47AD300C9F652 /* NSError+SMKAdditions.m */; };
@@ -214,7 +202,6 @@
 		03FBECAA15E6E49400A67DEE /* SMKManagedObjectContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 03FBECA815E6E49400A67DEE /* SMKManagedObjectContext.h */; };
 		03FBECAB15E6E49400A67DEE /* SMKManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 03FBECA915E6E49400A67DEE /* SMKManagedObjectContext.m */; };
 		03FBECAD15E6F1A000A67DEE /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03FBECAC15E6F1A000A67DEE /* CoreMedia.framework */; };
-		03FBECAF15E6F1B200A67DEE /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03FBECAE15E6F1B100A67DEE /* CoreMedia.framework */; };
 		03FBECCB15E700AB00A67DEE /* CocoaLibSpotify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03FBECC815E7009000A67DEE /* CocoaLibSpotify.framework */; };
 		03FBECCC15E700B600A67DEE /* CocoaLibSpotify.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 03FBECC815E7009000A67DEE /* CocoaLibSpotify.framework */; };
 		03FBED3D15E70FA400A67DEE /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 036991F215E3EAE1003BCCBE /* Cocoa.framework */; };
@@ -226,6 +213,23 @@
 		03FBED6A15E7101F00A67DEE /* SNRMusicKitMac.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0369921715E3EB0B003BCCBE /* SNRMusicKitMac.framework */; };
 		03FBED6D15E710B300A67DEE /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 03FBED6B15E710B300A67DEE /* MainMenu.xib */; };
 		5F4F336D163D3A8000573381 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F4F336C163D3A8000573381 /* CoreServices.framework */; };
+		5F57159F16C2AE540054A4C3 /* libCocoaLibSpotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 03FBECD715E700C300A67DEE /* libCocoaLibSpotify.a */; };
+		5F5715A116C2AE600054A4C3 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5715A016C2AE600054A4C3 /* SystemConfiguration.framework */; };
+		5F5715A316C2AE6B0054A4C3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5715A216C2AE6B0054A4C3 /* Security.framework */; };
+		5F5715A516C2AE770054A4C3 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5715A416C2AE760054A4C3 /* MediaPlayer.framework */; };
+		5F5715A716C2AE810054A4C3 /* libcommonCrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5715A616C2AE810054A4C3 /* libcommonCrypto.dylib */; };
+		5F5715A916C2AE8E0054A4C3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5715A816C2AE8E0054A4C3 /* UIKit.framework */; };
+		5F5715AB16C2AE990054A4C3 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5715AA16C2AE990054A4C3 /* CFNetwork.framework */; };
+		5F5715AD16C2AEA50054A4C3 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5715AC16C2AEA50054A4C3 /* CoreMedia.framework */; };
+		5F5715AF16C2AEAB0054A4C3 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5715AE16C2AEAB0054A4C3 /* CoreData.framework */; };
+		5F5715B116C2AEB20054A4C3 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5715B016C2AEB20054A4C3 /* MobileCoreServices.framework */; };
+		5F5715B316C2AEB80054A4C3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5715B216C2AEB80054A4C3 /* AVFoundation.framework */; };
+		5F5715B516C2AEC60054A4C3 /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5715B416C2AEC60054A4C3 /* CoreAudio.framework */; };
+		5F5715B616C2AEEC0054A4C3 /* SPUser+SMKUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB017415E859FB001F3A02 /* SPUser+SMKUser.h */; };
+		5F5715B716C2AEEE0054A4C3 /* SPPlaylist+SMKPlaylist.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB017E15E85C3E001F3A02 /* SPPlaylist+SMKPlaylist.h */; };
+		5F5715B816C2AEFA0054A4C3 /* SPToplist+SMKPlaylist.h in Headers */ = {isa = PBXBuildFile; fileRef = 03DEF86B15EA9F7F001A1537 /* SPToplist+SMKPlaylist.h */; };
+		5F5715B916C2AF0A0054A4C3 /* SMKSpotifyContentSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 03EB016E15E856FB001F3A02 /* SMKSpotifyContentSource.h */; };
+		5F5715BA16C2AF0C0054A4C3 /* SMKSpotifyHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 03576BEF15E993E100316930 /* SMKSpotifyHelpers.m */; };
 		5F644788162D84880032FE23 /* AFHTTPClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F644775162D84880032FE23 /* AFHTTPClient.h */; };
 		5F644789162D84880032FE23 /* AFHTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F644776162D84880032FE23 /* AFHTTPClient.m */; };
 		5F64478A162D84880032FE23 /* AFHTTPRequestOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F644777162D84880032FE23 /* AFHTTPRequestOperation.h */; };
@@ -270,10 +274,6 @@
 		5F6447C0162D8A980032FE23 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F644785162D84880032FE23 /* AFXMLRequestOperation.m */; };
 		5F6447C1162D8A980032FE23 /* UIImageView+AFNetworking.h in Sources */ = {isa = PBXBuildFile; fileRef = 5F644786162D84880032FE23 /* UIImageView+AFNetworking.h */; };
 		5F6447C2162D8A980032FE23 /* UIImageView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F644787162D84880032FE23 /* UIImageView+AFNetworking.m */; };
-		5F6447C4162D8AC70032FE23 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6447C3162D8AC70032FE23 /* CFNetwork.framework */; };
-		5F6447C6162D8B670032FE23 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6447C5162D8B670032FE23 /* MobileCoreServices.framework */; };
-		5F6447C8162D8B6F0032FE23 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F6447C7162D8B6F0032FE23 /* SystemConfiguration.framework */; };
-		5F6447D2162D8EEF0032FE23 /* SMKSpotifyHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 03576BEF15E993E100316930 /* SMKSpotifyHelpers.m */; };
 		5F6447D4162D98D60032FE23 /* SPToplist+SMKPlaylist.m in Sources */ = {isa = PBXBuildFile; fileRef = 03DEF86C15EA9F7F001A1537 /* SPToplist+SMKPlaylist.m */; };
 		5F6447D7162D9A020032FE23 /* SMKLastFMClient+ARAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 5F6447D5162D9A010032FE23 /* SMKLastFMClient+ARAdditions.h */; };
 		5F6447D8162D9A020032FE23 /* SMKLastFMClient+ARAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 5F6447D6162D9A010032FE23 /* SMKLastFMClient+ARAdditions.m */; };
@@ -333,13 +333,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		03157B2815EBE3790048DB65 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 03FBECCD15E700C200A67DEE /* CocoaLibSpotify iOS Library.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 50AF49DB1439CBFE00E4A5EF;
-			remoteInfo = CocoaLibSpotify;
-		};
 		03157B5115EBE3B20048DB65 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 036991E515E3EAE1003BCCBE /* Project object */;
@@ -437,6 +430,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 0369921615E3EB0B003BCCBE;
 			remoteInfo = SNRMusicKitMac;
+		};
+		5F57159D16C2AE4F0054A4C3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 03FBECCD15E700C200A67DEE /* CocoaLibSpotify iOS Library.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 50AF49DB1439CBFE00E4A5EF;
+			remoteInfo = CocoaLibSpotify;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -681,6 +681,17 @@
 		03FBED6315E70FFA00A67DEE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = "Example Apps/8tracksExample/en.lproj/InfoPlist.strings"; sourceTree = SOURCE_ROOT; };
 		03FBED6C15E710B300A67DEE /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "Example Apps/8tracksExample/en.lproj/MainMenu.xib"; sourceTree = SOURCE_ROOT; };
 		5F4F336C163D3A8000573381 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		5F5715A016C2AE600054A4C3 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/SystemConfiguration.framework; sourceTree = DEVELOPER_DIR; };
+		5F5715A216C2AE6B0054A4C3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		5F5715A416C2AE760054A4C3 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/MediaPlayer.framework; sourceTree = DEVELOPER_DIR; };
+		5F5715A616C2AE810054A4C3 /* libcommonCrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcommonCrypto.dylib; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/usr/lib/system/libcommonCrypto.dylib; sourceTree = DEVELOPER_DIR; };
+		5F5715A816C2AE8E0054A4C3 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		5F5715AA16C2AE990054A4C3 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		5F5715AC16C2AEA50054A4C3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/CoreMedia.framework; sourceTree = DEVELOPER_DIR; };
+		5F5715AE16C2AEAB0054A4C3 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/CoreData.framework; sourceTree = DEVELOPER_DIR; };
+		5F5715B016C2AEB20054A4C3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/MobileCoreServices.framework; sourceTree = DEVELOPER_DIR; };
+		5F5715B216C2AEB80054A4C3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		5F5715B416C2AEC60054A4C3 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS6.1.sdk/System/Library/Frameworks/CoreAudio.framework; sourceTree = DEVELOPER_DIR; };
 		5F644775162D84880032FE23 /* AFHTTPClient.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = AFHTTPClient.h; path = External/AFNetworking/AFNetworking/AFHTTPClient.h; sourceTree = "<group>"; };
 		5F644776162D84880032FE23 /* AFHTTPClient.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = AFHTTPClient.m; path = External/AFNetworking/AFNetworking/AFHTTPClient.m; sourceTree = "<group>"; };
 		5F644777162D84880032FE23 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; name = AFHTTPRequestOperation.h; path = External/AFNetworking/AFNetworking/AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -761,19 +772,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5F6447C8162D8B6F0032FE23 /* SystemConfiguration.framework in Frameworks */,
-				5F6447C6162D8B670032FE23 /* MobileCoreServices.framework in Frameworks */,
-				03DEF89D15EB3174001A1537 /* Security.framework in Frameworks */,
-				5F6447C4162D8AC70032FE23 /* CFNetwork.framework in Frameworks */,
-				03157B5715EBE42A0048DB65 /* UIKit.framework in Frameworks */,
-				03157B2A15EBE37D0048DB65 /* libCocoaLibSpotify.a in Frameworks */,
-				03DEF89215EB277F001A1537 /* libcommonCrypto.dylib in Frameworks */,
-				03EB016815E83F60001F3A02 /* MediaPlayer.framework in Frameworks */,
-				03FBECAF15E6F1B200A67DEE /* CoreMedia.framework in Frameworks */,
-				03F795BE15E474A400C9F652 /* CoreAudio.framework in Frameworks */,
-				036994D215E3F475003BCCBE /* CoreData.framework in Frameworks */,
-				0369924715E3F341003BCCBE /* AVFoundation.framework in Frameworks */,
+				5F5715B316C2AEB80054A4C3 /* AVFoundation.framework in Frameworks */,
+				5F5715B516C2AEC60054A4C3 /* CoreAudio.framework in Frameworks */,
+				5F5715AF16C2AEAB0054A4C3 /* CoreData.framework in Frameworks */,
+				5F5715AD16C2AEA50054A4C3 /* CoreMedia.framework in Frameworks */,
+				5F5715AB16C2AE990054A4C3 /* CFNetwork.framework in Frameworks */,
 				0369923B15E3EB44003BCCBE /* Foundation.framework in Frameworks */,
+				5F5715A116C2AE600054A4C3 /* SystemConfiguration.framework in Frameworks */,
+				5F5715A316C2AE6B0054A4C3 /* Security.framework in Frameworks */,
+				5F5715A516C2AE770054A4C3 /* MediaPlayer.framework in Frameworks */,
+				5F5715B116C2AEB20054A4C3 /* MobileCoreServices.framework in Frameworks */,
+				5F5715A916C2AE8E0054A4C3 /* UIKit.framework in Frameworks */,
+				5F5715A716C2AE810054A4C3 /* libcommonCrypto.dylib in Frameworks */,
+				5F57159F16C2AE540054A4C3 /* libCocoaLibSpotify.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -868,6 +879,17 @@
 		036991E315E3EAE1003BCCBE = {
 			isa = PBXGroup;
 			children = (
+				5F5715B416C2AEC60054A4C3 /* CoreAudio.framework */,
+				5F5715B216C2AEB80054A4C3 /* AVFoundation.framework */,
+				5F5715B016C2AEB20054A4C3 /* MobileCoreServices.framework */,
+				5F5715AE16C2AEAB0054A4C3 /* CoreData.framework */,
+				5F5715AC16C2AEA50054A4C3 /* CoreMedia.framework */,
+				5F5715AA16C2AE990054A4C3 /* CFNetwork.framework */,
+				5F5715A816C2AE8E0054A4C3 /* UIKit.framework */,
+				5F5715A616C2AE810054A4C3 /* libcommonCrypto.dylib */,
+				5F5715A416C2AE760054A4C3 /* MediaPlayer.framework */,
+				5F5715A216C2AE6B0054A4C3 /* Security.framework */,
+				5F5715A016C2AE600054A4C3 /* SystemConfiguration.framework */,
 				0371CF9815EDECD900B304CC /* Master API */,
 				03927DFB15E69EBD00E6483E /* Example Apps */,
 				03F795C315E47AB900C9F652 /* Categories */,
@@ -1485,15 +1507,11 @@
 				5F6447DC162D9E8F0032FE23 /* SMKLastFMClient.h in Headers */,
 				5F6447DD162D9E8F0032FE23 /* SMKLastFMClient+SMKTrack.h in Headers */,
 				5F6447DA162D9D8A0032FE23 /* SMKLastFMClient+ARAdditions.h in Headers */,
-				032BAE8015EBF36C003E3135 /* SMKSpotifyContentSource.h in Headers */,
 				032BAE7F15EBF366003E3135 /* SMKSpotifyConstants.h in Headers */,
-				032BAE7915EBF361003E3135 /* SPUser+SMKUser.h in Headers */,
-				032BAE7A15EBF361003E3135 /* SPPlaylist+SMKPlaylist.h in Headers */,
 				0371CF9415EDE46F00B304CC /* SMKMPMediaArtist.h in Headers */,
 				032BAE7B15EBF361003E3135 /* SPTrack+SMKTrack.h in Headers */,
 				032BAE7C15EBF361003E3135 /* SPAlbum+SMKAlbum.h in Headers */,
 				032BAE7D15EBF361003E3135 /* SPArtist+SMKArtist.h in Headers */,
-				032BAE7E15EBF361003E3135 /* SPToplist+SMKPlaylist.h in Headers */,
 				0369924015E3EB44003BCCBE /* SNRMusicKitiOS.h in Headers */,
 				03EB016915E840D5001F3A02 /* SMKErrorCodes.h in Headers */,
 				0306DB6D15EC199D00D6409B /* SMKMPMediaPredicate.h in Headers */,
@@ -1547,6 +1565,10 @@
 				036F857615EEC54500DF72B9 /* SMKAVQueuePlayer.h in Headers */,
 				5F64487A162E80920032FE23 /* SMKSection.h in Headers */,
 				5F8456191647BDCA0010F80C /* NSArray+SMKAdditions.h in Headers */,
+				5F5715B616C2AEEC0054A4C3 /* SPUser+SMKUser.h in Headers */,
+				5F5715B716C2AEEE0054A4C3 /* SPPlaylist+SMKPlaylist.h in Headers */,
+				5F5715B816C2AEFA0054A4C3 /* SPToplist+SMKPlaylist.h in Headers */,
+				5F5715B916C2AF0A0054A4C3 /* SMKSpotifyContentSource.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1623,7 +1645,7 @@
 			buildRules = (
 			);
 			dependencies = (
-				03157B2915EBE3790048DB65 /* PBXTargetDependency */,
+				5F57159E16C2AE4F0054A4C3 /* PBXTargetDependency */,
 			);
 			name = SNRMusicKitiOS;
 			productName = SNRMusicKitiOS;
@@ -1938,7 +1960,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F6447D4162D98D60032FE23 /* SPToplist+SMKPlaylist.m in Sources */,
-				5F6447D2162D8EEF0032FE23 /* SMKSpotifyHelpers.m in Sources */,
 				5F6447B0162D8A980032FE23 /* AFHTTPClient.h in Sources */,
 				5F6447B1162D8A980032FE23 /* AFHTTPClient.m in Sources */,
 				5F6447B2162D8A980032FE23 /* AFHTTPRequestOperation.h in Sources */,
@@ -1995,6 +2016,7 @@
 				5F6447D9162D9A020032FE23 /* SMKLastFMClient+ARAdditions.m in Sources */,
 				5F64487B162E809B0032FE23 /* SMKSection.m in Sources */,
 				5F84561B1647BDCA0010F80C /* NSArray+SMKAdditions.m in Sources */,
+				5F5715BA16C2AF0C0054A4C3 /* SMKSpotifyHelpers.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2020,11 +2042,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		03157B2915EBE3790048DB65 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = CocoaLibSpotify;
-			targetProxy = 03157B2815EBE3790048DB65 /* PBXContainerItemProxy */;
-		};
 		03157B5215EBE3B20048DB65 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 0369923815E3EB44003BCCBE /* SNRMusicKitiOS */;
@@ -2054,6 +2071,11 @@
 			isa = PBXTargetDependency;
 			target = 0369921615E3EB0B003BCCBE /* SNRMusicKitMac */;
 			targetProxy = 03FBED6615E7100B00A67DEE /* PBXContainerItemProxy */;
+		};
+		5F57159E16C2AE4F0054A4C3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = CocoaLibSpotify;
+			targetProxy = 5F57159D16C2AE4F0054A4C3 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -2354,9 +2376,8 @@
 					"\"$(SDKROOT)/usr/lib/system\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRIVATE_HEADERS_FOLDER_PATH = include/SonoraMusicKit;
 				PRODUCT_NAME = SonoraMusicKit;
-				PUBLIC_HEADERS_FOLDER_PATH = include/SonoraMusicKit;
+				PUBLIC_HEADERS_FOLDER_PATH = SonoraMusicKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_TEMP_DIR)/../UninstalledProducts/include\"";
@@ -2377,9 +2398,8 @@
 					"\"$(SDKROOT)/usr/lib/system\"",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRIVATE_HEADERS_FOLDER_PATH = include/SonoraMusicKit;
 				PRODUCT_NAME = SonoraMusicKit;
-				PUBLIC_HEADERS_FOLDER_PATH = include/SonoraMusicKit;
+				PUBLIC_HEADERS_FOLDER_PATH = SonoraMusicKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				USER_HEADER_SEARCH_PATHS = "\"$(PROJECT_TEMP_DIR)/../UninstalledProducts/include\"";
