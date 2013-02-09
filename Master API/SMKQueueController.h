@@ -18,9 +18,9 @@ enum {
 };
 typedef NSUInteger SMKQueueControllerRepeatMode;
 
-// Notifications used to handle transitions between tracks.
-static const NSString *SMKQueueTransitToNextTrackNotification = @"SMKQueueControllerTransitToNextTrackNotification";
-static const NSString *SMKQueueTransitToPreviousTrackNotification = @"SMKQueueControllerTransitToPreviousTrackNotification";
+// Notifications used to handle transitions between tracks:
+FOUNDATION_EXPORT NSString *const SMKQueueTransitToNextTrackNotification;
+FOUNDATION_EXPORT NSString *const SMKQueueTransitToPreviousTrackNotification;
 
 @interface SMKQueueController : NSObject<SMKPlaylist>
 

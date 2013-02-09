@@ -12,6 +12,9 @@
 #import "NSMutableArray+SMKAdditions.h"
 #import "NSArray+SMKAdditions.h"
 
+NSString *const SMKQueueTransitToNextTrackNotification = @"SMKQueueControllerTransitToNextTrackNotification";
+NSString *const SMKQueueTransitToPreviousTrackNotification = @"SMKQueueControllerTransitToPreviousTrackNotification";
+
 @interface SMKQueueItem : NSObject
 @property (nonatomic, retain) id<SMKTrack> track;
 @end
