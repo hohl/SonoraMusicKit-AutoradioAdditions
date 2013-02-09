@@ -22,7 +22,7 @@ typedef NSUInteger SMKQueueControllerRepeatMode;
 FOUNDATION_EXPORT NSString *const SMKQueueTransitToNextTrackNotification;
 FOUNDATION_EXPORT NSString *const SMKQueueTransitToPreviousTrackNotification;
 
-@interface SMKQueueController : NSObject<SMKPlaylist>
+@interface SMKQueueController : NSObject<SMKPlaylist, NSCoding>
 
 #pragma mark - Queueing
 

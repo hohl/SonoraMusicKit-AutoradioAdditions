@@ -15,5 +15,6 @@
 #import "SMKMPMediaArtist.h"
 
 @interface SMKMPMediaContentSource : NSObject <SMKContentSource>
++ (SMKMPMediaContentSource *)sharedInstance;
 @property (nonatomic, readonly) dispatch_queue_t queryQueue;
 @end

@@ -29,6 +29,29 @@
 
 @implementation SMKMPMediaContentSource
 
++ (SMKMPMediaContentSource *)sharedInstance
+{    
+	static SMKMPMediaContentSource *_sharedInstance;
+	if(!_sharedInstance) {
+		static dispatch_once_t oncePredicate;
+		dispatch_once(&oncePredicate, ^{
+			_sharedInstance = [[super allocWithZone:nil] init];
+        });
+    }
+    
+    return _sharedInstance;
+}
+
++ (id)allocWithZone:(NSZone *)zone
+{    
+	return [self sharedInstance];
+}
+
+- (id)copyWithZone:(NSZone *)zone
+{
+	return self;
+}
+
 - (id)init
 {
     if ((self = [super init])) {

@@ -15,7 +15,7 @@
 NSString *const SMKQueueTransitToNextTrackNotification = @"SMKQueueControllerTransitToNextTrackNotification";
 NSString *const SMKQueueTransitToPreviousTrackNotification = @"SMKQueueControllerTransitToPreviousTrackNotification";
 
-@interface SMKQueueItem : NSObject
+@interface SMKQueueItem : NSObject<NSCoding>
 @property (nonatomic, retain) id<SMKTrack> track;
 @end
 
@@ -44,6 +44,31 @@ NSString *const SMKQueueTransitToPreviousTrackNotification = @"SMKQueueControlle
         self.items = [NSMutableArray arrayWithArray:items];
     }
     return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if ((self = [super init])) {
+        self.shuffle = [aDecoder decodeBoolForKey:@"shuffle"];
+        self.repeatMode = [aDecoder decodeIntegerForKey:@"repeatMode"];
+        self.items = [aDecoder decodeObjectForKey:@"items"];
+        [self playTrackAtIndex:[aDecoder decodeIntegerForKey:@"indexOfCurrentTrack"]];
+        [self seekToPlaybackTime:[aDecoder decodeDoubleForKey:@"playbackTime"]];
+        if (![aDecoder decodeBoolForKey:@"playing"]) {
+            [self.currentPlayer pause];
+        }
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.items forKey:@"items"];
+    [aCoder encodeInteger:self.indexOfCurrentTrack forKey:@"indexOfCurrentTrack"];
+    [aCoder encodeBool:self.shuffle forKey:@"shuffle"];
+    [aCoder encodeInteger:self.repeatMode forKey:@"repeatMode"];
+    [aCoder encodeBool:self.playing forKey:@"playing"];
+    [aCoder encodeDouble:self.playbackTime forKey:@"playbackTime"];
 }
 
 + (instancetype)queueControllerWithTracks:(NSArray *)tracks
@@ -534,4 +559,19 @@ NSString *const SMKQueueTransitToPreviousTrackNotification = @"SMKQueueControlle
 @end
 
 @implementation SMKQueueItem
+
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super init];
+    if (self) {
+        self.track = [aDecoder decodeObjectForKey:@"track"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.track forKey:@"track"];
+}
+
 @end

@@ -11,7 +11,7 @@
 #import "SMKTrack.h"
 #import "SMKArtworkObject.h"
 
-@interface SMKMPMediaTrack : NSObject <SMKTrack, SMKArtworkObject>
+@interface SMKMPMediaTrack : NSObject <SMKTrack, SMKArtworkObject, NSCoding>
 @property (nonatomic, strong) MPMediaItem *representedObject;
 @property (nonatomic, assign, readonly) id<SMKContentSource> contentSource;
 

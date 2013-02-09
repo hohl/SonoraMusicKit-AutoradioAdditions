@@ -28,6 +28,20 @@
     return self;
 }
 
+- (id)initWithCoder:(NSCoder *)aDecoder
+{
+    if ((self = [super init])) {
+        _representedObject = [aDecoder decodeObjectForKey:@"representedObject"];
+        _contentSource = [SMKMPMediaContentSource sharedInstance];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.representedObject forKey:@"representedObject"];
+}
+
 #pragma mark - SMKContentObject
 
 - (NSString *)uniqueIdentifier
