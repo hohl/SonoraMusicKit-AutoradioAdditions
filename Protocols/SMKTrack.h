@@ -13,7 +13,7 @@
 
 #import "SMKContentObject.h"
 
-@protocol SMKTrack <NSObject, SMKContentObject>
+@protocol SMKTrack <NSObject, NSCoding, SMKContentObject>
 @required
 /**
  @return The parent artist of the track.
