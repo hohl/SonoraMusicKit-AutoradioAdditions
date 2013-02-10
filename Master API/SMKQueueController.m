@@ -506,6 +506,11 @@ NSString *const SMKQueueTransitToPreviousTrackNotification = @"SMKQueueControlle
     return [self.tracks objectAtIndex:nextTrackIndex];
 }
 
++ (NSSet *)keyPathsForValuesAffectingNextTrack
+{
+    return [NSSet setWithArray:@[@"currentPlayer.currentTrack", @"shuffle", @"repeatMode"]];
+}
+
 - (id<SMKTrack>)previousTrack
 {
     NSUInteger previousTrackIndex = [self _indexOfPreviousTrack];
@@ -520,10 +525,6 @@ NSString *const SMKQueueTransitToPreviousTrackNotification = @"SMKQueueControlle
     return [NSSet setWithArray:@[@"currentPlayer.currentTrack", @"shuffle", @"repeatMode"]];
 }
 
-+ (NSSet *)keyPathsForValuesAffectingNextTrack
-{
-    return [NSSet setWithArray:@[@"currentPlayer.currentTrack", @"shuffle", @"repeatMode"]];
-}
 
 - (BOOL)isTrackInQueue:(id<SMKTrack>)trackToLookup
 {
